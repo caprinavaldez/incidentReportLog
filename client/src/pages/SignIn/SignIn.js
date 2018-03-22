@@ -12,7 +12,8 @@ class SignIn extends Component {
     books: [],
     title: "",
     author: "",
-    synopsis: ""
+    synopsis: "",
+    selectedOption: ""
   };
 
   componentDidMount() {
@@ -53,7 +54,14 @@ class SignIn extends Component {
     }
   };
 
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    console.log(`Selected: ${selectedOption.label}`);
+  };
+
   render() {
+  const { selectedOption } = this.state;
+  const value = selectedOption && selectedOption.value;
     return (
       <Container fluid>
         <Row>
@@ -83,17 +91,20 @@ class SignIn extends Component {
               <Select
                 // value={this.state.synopsis}
                 // onChange={this.handleInputChange}
-                hasLabel="true"
-                required="true"
-                name="business"
-                placeholder="Business Type (required)"
-                options="Chrome, Firefox, Edge, Internet Explorer"
+                name="businessSelection"
+                value="value"
+                type="select"
+                placeholder="Select the Type of Industry You're In (Required)"
+                options="[
+                  { value: 'one', label: 'One' },
+                  { value: 'two', label: 'Two' },
+                ]"
               />
               <FormBtn
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Log In
               </FormBtn>
             </form>
           </Col>
