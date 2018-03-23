@@ -63,28 +63,48 @@ class AddReport extends Component {
             </Jumbotron>
             <form>
               <Input
-                value={this.state.title}
-                onChange={this.handleInputChange}
-                name="title"
-                placeholder="Title (required)"
+                // value={this.state.title}
+                // onChange={this.handleInputChange}
+                name="dateOfAccident"
+                placeholder="Date of Accident (required)"
               />
               <Input
-                value={this.state.author}
-                onChange={this.handleInputChange}
-                name="author"
-                placeholder="Author (required)"
+                // value={this.state.author}
+                // onChange={this.handleInputChange}
+                name="person"
+                placeholder="Person(s) Affected (required)"
+              />
+              <Input
+                // value={this.state.author}
+                // onChange={this.handleInputChange}
+                name="location"
+                placeholder="Accident Location (required)"
+              />
+              <Input
+                // value={this.state.author}
+                // onChange={this.handleInputChange}
+                type="checkbox"
+                name="category"
+                placeholder="Accident Category (required)"
+              />
+              <Input
+                // value={this.state.author}
+                // onChange={this.handleInputChange}
+                type="number"
+                name="cost"
+                placeholder="Accident Cost $ (required)"
               />
               <TextArea
-                value={this.state.synopsis}
-                onChange={this.handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
+                // value={this.state.synopsis}
+                // onChange={this.handleInputChange}
+                name="notes"
+                placeholder="Accident Notes (Optional)"
               />
               <FormBtn
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Submit New Accident
               </FormBtn>
             </form>
           </Col>
@@ -106,8 +126,8 @@ class AddReport extends Component {
                 ))}
               </List>
             ) : (
-              <h3>No Results to Display</h3>
-            )}
+                <h3>No Results to Display</h3>
+              )}
           </Col>
         </Row>
         <Row>
