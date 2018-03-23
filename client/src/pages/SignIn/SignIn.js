@@ -11,7 +11,7 @@ class SignIn extends Component {
   state = {
     email: "",
     password: "",
-    businessCategory: ""
+    coType: ""
   };
 
   componentDidMount() {
@@ -63,8 +63,8 @@ class SignIn extends Component {
                 placeholder="Password (required)"
               />
               <label>
-                Select Type of Industry:
-                <select name="businessCategory" value={this.state.businessCategory} onChange={this.handleInputChange}>
+                Select Company Type:
+                <select name="coType" value={this.state.coType} onChange={this.handleInputChange}>
                   <option value="insurance">Insurance</option>
                   <option value="nonInsurance">Non-Insurance</option>
                 </select>
