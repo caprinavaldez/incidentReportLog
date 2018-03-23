@@ -5,6 +5,7 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import {BarChart} from 'react-easy-chart';
 import {PieChart} from 'react-easy-chart';
+import './InsuranceHome.css';
 
 class InsuranceHome extends Component {
   state = {
