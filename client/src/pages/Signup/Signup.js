@@ -61,7 +61,7 @@ class Signup extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>Login / Signup</h1>
+              <h1>Signup</h1>
             </Jumbotron>
             <form>
               <Input

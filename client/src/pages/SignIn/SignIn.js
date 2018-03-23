@@ -44,7 +44,7 @@ class SignIn extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1>Login / Signup</h1>
+              <h1>Login</h1>
             </Jumbotron>
             <form>
               <Input
@@ -60,17 +60,18 @@ class SignIn extends Component {
                 onChange={this.handleInputChange}
                 required="true"
                 name="password"
+                type="password"
                 placeholder="Password (required)"
               />
-              <label>
+              {/* <label>
                 Select Company Type:
                 <select name="coType" value={this.state.coType} onChange={this.handleInputChange}>
                   <option value="insurance">Insurance</option>
                   <option value="nonInsurance">Non-Insurance</option>
                 </select>
-              </label>
+              </label> */}
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
+                disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
                 Log In
