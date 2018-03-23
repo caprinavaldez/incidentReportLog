@@ -5,34 +5,18 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn, Select } from "../../components/Form";
+import { Input, FormBtn } from "../../components/Form";
 
 class SignIn extends Component {
   state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: "",
-    selectedOption: ""
+    email: "",
+    password: "",
+    businessCategory: ""
   };
 
   componentDidMount() {
-    this.loadBooks();
+    // this.loadBooks();
   }
-
-  loadBooks = () => {
-    API.getBooks()
-      .then(res =>
-        this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -43,25 +27,18 @@ class SignIn extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.title && this.state.author) {
-      API.saveBook({
-        title: this.state.title,
-        author: this.state.author,
-        synopsis: this.state.synopsis
-      })
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
-    }
-  };
-
-  handleChange = (selectedOption) => {
-    this.setState({ selectedOption });
-    console.log(`Selected: ${selectedOption.label}`);
+    // if (this.state.title && this.state.author) {
+    //   API.saveBook({
+    //     title: this.state.title,
+    //     author: this.state.author,
+    //     synopsis: this.state.synopsis
+    //   })
+    //     .then(res => this.loadBooks())
+    //     .catch(err => console.log(err));
+    // }
   };
 
   render() {
-  const { selectedOption } = this.state;
-  const value = selectedOption && selectedOption.value;
     return (
       <Container fluid>
         <Row>
@@ -69,37 +46,29 @@ class SignIn extends Component {
             <Jumbotron>
               <h1>Login / Signup</h1>
             </Jumbotron>
-            {}
             <form>
               <Input
-                // value={this.state.title}
-                // onChange={this.handleInputChange}
-                hasLabel="true"
+                value={this.state.email}
+                onChange={this.handleInputChange}
                 required="true"
                 name="email"
                 placeholder="Email (required)"
                 type="text"
               />
               <Input
-                // value={this.state.author}
-                // onChange={this.handleInputChange}
-                hasLabel="true"
+                value={this.state.password}
+                onChange={this.handleInputChange}
                 required="true"
                 name="password"
                 placeholder="Password (required)"
               />
-              <Select
-                // value={this.state.synopsis}
-                // onChange={this.handleInputChange}
-                name="businessSelection"
-                value="value"
-                type="select"
-                placeholder="Select the Type of Industry You're In (Required)"
-                options="[
-                  { value: 'one', label: 'One' },
-                  { value: 'two', label: 'Two' },
-                ]"
-              />
+              <label>
+                Select Type of Industry:
+                <select name="businessCategory" value={this.state.businessCategory} onChange={this.handleInputChange}>
+                  <option value="insurance">Insurance</option>
+                  <option value="nonInsurance">Non-Insurance</option>
+                </select>
+              </label>
               <FormBtn
                 disabled={!(this.state.author && this.state.title)}
                 onClick={this.handleFormSubmit}
