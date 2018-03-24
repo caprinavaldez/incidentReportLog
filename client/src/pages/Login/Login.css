@@ -1,0 +1,12 @@
+#loginForm {
+    margin: 10px 300px 10px 300px;
+    padding: 0 40px 20px 40px;
+    box-sizing: border-box;
+    background-color: rgba(181,181,181,.7);
+    /* box-shadow: 0 2px 4px 0 rgba(181,181,181,.7); */
+}
+
+#loginBtn {
+    display: flex; 
+    justify-content: center;
+}

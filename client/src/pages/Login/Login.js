@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 // import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
@@ -47,18 +46,17 @@ class Login extends Component {
             <Link to="/business">← Back to Home</Link>
           </Col>
         </Row>
+        <div id="loginForm">
         <Row>
           <Col size="md-12">
-            <Jumbotron>
               <h1>Login</h1>
-            </Jumbotron>
             <form>
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 required="true"
                 name="email"
-                placeholder="Email (required)"
+                placeholder="Email (Required)"
                 type="text"
               />
               <Input
@@ -67,7 +65,7 @@ class Login extends Component {
                 required="true"
                 name="password"
                 type="password"
-                placeholder="Password (required)"
+                placeholder="Password (Required)"
               />
               {/* <label>
                 Select Company Type:
@@ -76,16 +74,17 @@ class Login extends Component {
                   <option value="nonInsurance">Non-Insurance</option>
                 </select>
               </label> */}
-              <FormBtn
+              <FormBtn id="loginBtn"
                 disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
                 Log In
               </FormBtn>
+              <p style={{textAlign: "center"}}>Not yet a Member? <a href="signup">Sign-up here</a></p>
             </form>
           </Col>
         </Row>
-
+        </div>
       </Container>
     );
   }

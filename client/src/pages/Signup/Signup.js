@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 // import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
@@ -60,20 +59,19 @@ class Signup extends Component {
       <Container fluid>
         <Row>
           <Col size="md-2">
-            <Link to="/business">← Back to Home</Link>
+            <Link to="/">← Back to Home</Link>
           </Col>
         </Row>
+        <div id="signupForm">
         <Row>
           <Col size="md-12">
-            <Jumbotron>
-              <h1>Signup</h1>
-            </Jumbotron>
+          <h1>Create a New Account</h1>
             <form>
               <Input
                 value={this.state.bizName}
                 onChange={this.handleInputChange}
                 name="bizName"
-                placeholder="Company Name (required)"
+                placeholder="Company Name (Required)"
               />
               <label>
                 <select name="coType" value={this.state.coType} onChange={this.handleInputChange}>
@@ -81,7 +79,8 @@ class Signup extends Component {
                   <option value="insurance">Insurance</option>
                   <option value="nonInsurance">Non-Insurance</option>
                 </select>
-              </label>     
+              </label> 
+              <br></br>    
               <label>          
                 <select name="bizCategory" value={this.state.bizCategory} onChange={this.handleInputChange}>
                   <option>Select Business Category:</option>
@@ -109,15 +108,17 @@ class Signup extends Component {
                 name="password"
                 placeholder="Password (Required)"
               />
-              <FormBtn
+              <FormBtn id="signupBtn"
                 disabled={!(this.state.bizName && this.state.coType && this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                Sign-up
+                Join us!
               </FormBtn>
+              <p style={{textAlign: "center"}}>Already a Member? <a href="login">Login here</a></p>
             </form>
           </Col>
         </Row>
+        </div>
       </Container>
     );
   }
