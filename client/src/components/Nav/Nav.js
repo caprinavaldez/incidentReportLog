@@ -2,12 +2,13 @@ import React from "react";
 import './Nav.css';
 
 const Nav = () => (
-  <nav className="navbar navbar-inverse navbar-top">
+  <nav className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
         <button type="button" className="collapsed navbar-toggle">
           <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" /> <span className="icon-bar" />
+          <span className="icon-bar" /> 
+          <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
         <a href="/" className="navbar-brand">
@@ -18,7 +19,9 @@ const Nav = () => (
         </a>
         <a href="/insurance" className="navbar-brand">
           Insurance
-        </a>  
+        </a> 
+        </div>
+        <div className="navbar-header navbar-right">
         <a href="/login" className="navbar-brand">
           Login
         </a>  
