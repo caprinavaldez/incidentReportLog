@@ -24,6 +24,39 @@ class BizHome extends Component {
     //   .catch(err => console.log(err));
   }
 
+  // mouseOverHandler(d, e) {
+  //   this.setState({
+  //     showToolTip: true,
+  //     top: e.y,
+  //     left: e.x,
+  //     value: d.value,
+  //     key: d.data.key});
+  // }
+
+  // mouseMoveHandler(e) {
+  //   if (this.state.showToolTip) {
+  //     this.setState({top: e.y, left: e.x});
+  //   }
+  // }
+
+  // mouseOutHandler() {
+  //   this.setState({showToolTip: false});
+  // }
+
+  // createTooltip() {
+  //   if (this.state.showToolTip) {
+  //     return (
+  //       <ToolTip
+  //         top={this.state.top}
+  //         left={this.state.left}
+  //       >
+  //         The value of {this.state.key} is {this.state.value}
+  //       </ToolTip>
+  //     );
+  //   }
+  //   return false;
+  // }
+  
   render() {
     return (
       <Container fluid>
@@ -115,39 +148,6 @@ class BizHome extends Component {
           </Col>
           <Col size="md-6">
             <h2>{this.state.biz.categorygraph}</h2>
-      {/* mouseOverHandler(d, e) {
-        this.setState({
-          showToolTip: true,
-          top: e.y,
-          left: e.x,
-          value: d.value,
-          key: d.data.key
-        })
-      }
-
-      mouseMoveHandler(e) {
-        if (this.state.showToolTip) {
-          this.setState({top: e.y, left: e.x});
-        }
-      }
-
-      mouseOutHandler() {
-        this.setState({showToolTip: false});
-      }
-
-      createTooltip() {
-        if (this.state.showToolTip) {
-          return (
-            <ToolTip
-              top={this.state.top}
-              left={this.state.left}
-            >
-              {this.state.key} is {this.state.value}
-            </ToolTip>
-          );
-        }
-        return false;
-      } */}
       <PieChart
         labels
         data={[

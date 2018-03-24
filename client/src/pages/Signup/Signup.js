@@ -13,7 +13,6 @@ class Signup extends Component {
     bizName: "",
     coType: "",
     bizCategory: "",
-    bizIndustry: "",
     email: "",
     password: ""
   };
@@ -60,6 +59,11 @@ class Signup extends Component {
     return (
       <Container fluid>
         <Row>
+          <Col size="md-2">
+            <Link to="/business">← Back to Home</Link>
+          </Col>
+        </Row>
+        <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1>Signup</h1>
@@ -72,15 +76,15 @@ class Signup extends Component {
                 placeholder="Company Name (required)"
               />
               <label>
-                Select Company Type:
                 <select name="coType" value={this.state.coType} onChange={this.handleInputChange}>
+                  <option>Select Company Type:</option>
                   <option value="insurance">Insurance</option>
                   <option value="nonInsurance">Non-Insurance</option>
                 </select>
               </label>     
-              <label>
-                Select Business Category:
+              <label>          
                 <select name="bizCategory" value={this.state.bizCategory} onChange={this.handleInputChange}>
+                  <option>Select Business Category:</option>
                   <option value="construction">Construction</option>
                   <option value="health-socialCare">Health/Social Care</option>
                   <option value="education">Education</option>
@@ -97,26 +101,21 @@ class Signup extends Component {
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 name="email"
-                placeholder="Email (required)"
+                placeholder="Email (Required)"
               />
               <Input
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
-                placeholder="Password (required)"
+                placeholder="Password (Required)"
               />
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
+                disabled={!(this.state.bizName && this.state.coType && this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
-                Submit Book
+                Sign-up
               </FormBtn>
             </form>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/business">← Back to Home</Link>
           </Col>
         </Row>
       </Container>

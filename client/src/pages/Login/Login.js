@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 // import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
-import './SignIn.css';
+import './Login.css';
 
-class SignIn extends Component {
+class Login extends Component {
   state = {
     email: "",
     password: "",
@@ -42,6 +42,11 @@ class SignIn extends Component {
   render() {
     return (
       <Container fluid>
+        <Row>
+          <Col size="md-2">
+            <Link to="/business">← Back to Home</Link>
+          </Col>
+        </Row>
         <Row>
           <Col size="md-12">
             <Jumbotron>
@@ -80,14 +85,10 @@ class SignIn extends Component {
             </form>
           </Col>
         </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/business">← Back to Home</Link>
-          </Col>
-        </Row>
+
       </Container>
     );
   }
 }
 
-export default SignIn;
+export default Login;

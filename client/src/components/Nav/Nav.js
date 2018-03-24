@@ -19,8 +19,8 @@ const Nav = () => (
         <a href="/insurance" className="navbar-brand">
           Insurance
         </a>  
-        <a href="/signin" className="navbar-brand">
-          Sign-In
+        <a href="/login" className="navbar-brand">
+          Login
         </a>  
         <a href="/signup" className="navbar-brand">
           Sign-up

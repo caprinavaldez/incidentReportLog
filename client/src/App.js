@@ -8,7 +8,7 @@ import BizHome from "./pages/BizHome";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Signup from "./pages/Signup";
-import SignIn from "./pages/SignIn";
+import Login from "./pages/Login";
 
 const App = () => (
   <Router>
@@ -21,7 +21,7 @@ const App = () => (
         <Route exact path="/insurance" component={InsuranceHome} />
         <Route exact path="/business" component={BizHome} />        
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/signin" component={SignIn} />        
+        <Route exact path="/login" component={Login} />        
         <Route component={NoMatch} />
       </Switch>
     </div>

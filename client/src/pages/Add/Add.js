@@ -60,17 +60,24 @@ class AddReport extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+          <Col size="md-2">
+            <Link to="/business">← Back to Business Home</Link>
+          </Col>
+        </Row>
+      <div id="addForm">
+        <Row>
+          <Col size="md-12">
             <Jumbotron>
               <h1>Add New Report</h1>
             </Jumbotron>
             <form>
+              <Col size="md-6">
               <Input
                 value={this.state.date}
                 onChange={this.handleInputChange}
                 required="true"
                 name="date"
-                placeholder="Date of Accident (required)"
+                placeholder="Date of Accident (Required)"
               />
               <Input
                 value={this.state.person}
@@ -86,9 +93,18 @@ class AddReport extends Component {
                 name="location"
                 placeholder="Location of Accident (Required)"
               />
+              <TextArea
+                value={this.state.notes}
+                onChange={this.handleInputChange}
+                name="notes"
+                placeholder="Accident Notes (Optional)"
+              />              
+              </Col>
+              <Col size="md-6">  
+              <label></label>            
               <label>
-                Select Accident Category:
                 <select name="category" value={this.state.category} onChange={this.handleInputChange}>
+                  <option>Select Accident Category: </option> 
                   <option value="overexertion">Overexertion Involving Outside Source</option>
                   <option value="slips">Slips, Trips, or Falls</option>
                   <option value="otherExertions">Other Exertions or Bodily Reactions</option>
@@ -102,20 +118,15 @@ class AddReport extends Component {
                 onChange={this.handleInputChange}
                 required="true"
                 name="cost"
-                placeholder="Cost $ (Required)"
-              />
-              <TextArea
-                value={this.state.notes}
-                onChange={this.handleInputChange}
-                name="notes"
-                placeholder="Accident Notes (Optional)"
+                placeholder="Cost $ (Optional)"
               />
               <FormBtn
-                disabled={!(this.state.author && this.state.title)}
+                disabled={!(this.state.date && this.state.person && this.state.location && this.state.category)}
                 onClick={this.handleFormSubmit}
               >
                 Submit New Accident
               </FormBtn>
+              </Col>
             </form>
           </Col>
           {/* <Col size="md-6 sm-12">
@@ -140,11 +151,7 @@ class AddReport extends Component {
               )}
           </Col> */}
         </Row>
-        <Row>
-          <Col size="md-2">
-            <Link to="/business">← Back to Business Home</Link>
-          </Col>
-        </Row>
+        </div>
       </Container>
     );
   }
