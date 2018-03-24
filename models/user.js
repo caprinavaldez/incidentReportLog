@@ -6,7 +6,8 @@ const userSchema = new Schema({
     bizCategory: { type: String, required: true },
     password: { type: String, required: true },
     email: {type: String, required: true},
-    coType: {type: String, required: true}
+    coType: {type: String, required: true},
+    incidents: [{ type: Schema.Types.ObjectId, ref: 'Incident'}],
     //user: {} (USER ID)
 });
 
