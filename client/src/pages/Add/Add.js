@@ -70,7 +70,11 @@ class AddReport extends Component {
             <Jumbotron>
               <h1>Add New Report</h1>
             </Jumbotron>
+          </Col>
+        </Row>
+        <Row>
             <form>
+              <Row>
               <Col size="md-6">
               <Input
                 value={this.state.date}
@@ -79,6 +83,10 @@ class AddReport extends Component {
                 name="date"
                 placeholder="Date of Accident (Required)"
               />
+              </Col>
+              </Row>
+              <Row>
+                <Col size="md-6">
               <Input
                 value={this.state.person}
                 onChange={this.handleInputChange}
@@ -86,22 +94,8 @@ class AddReport extends Component {
                 name="person"
                 placeholder="Person(s) Affected (Required)"
               />
-              <Input
-                value={this.state.location}
-                onChange={this.handleInputChange}
-                required="true"
-                name="location"
-                placeholder="Location of Accident (Required)"
-              />
-              <TextArea
-                value={this.state.notes}
-                onChange={this.handleInputChange}
-                name="notes"
-                placeholder="Accident Notes (Optional)"
-              />              
               </Col>
-              <Col size="md-6">  
-              <label></label>            
+              <Col size="md-6">
               <label>
                 <select name="category" value={this.state.category} onChange={this.handleInputChange}>
                   <option>Select Accident Category: </option> 
@@ -113,6 +107,19 @@ class AddReport extends Component {
                   <option value="assault">On the Job Assault/Violent Act</option>
                 </select>
               </label>
+              </Col>
+              </Row>  
+              <Row>
+                <Col size="md-6">
+              <Input
+                value={this.state.location}
+                onChange={this.handleInputChange}
+                required="true"
+                name="location"
+                placeholder="Location of Accident (Required)"
+              />    
+              </Col> 
+              <Col size="md-6">      
               <Input
                 value={this.state.cost}
                 onChange={this.handleInputChange}
@@ -120,16 +127,31 @@ class AddReport extends Component {
                 name="cost"
                 placeholder="Cost $ (Optional)"
               />
+              </Col>
+              </Row>
+              <TextArea
+                value={this.state.notes}
+                onChange={this.handleInputChange}
+                name="notes"
+                placeholder="Accident Notes (Optional)"
+              />               
               <FormBtn
                 disabled={!(this.state.date && this.state.person && this.state.location && this.state.category)}
                 onClick={this.handleFormSubmit}
               >
                 Submit New Accident
               </FormBtn>
-              </Col>
             </form>
-          </Col>
-          {/* <Col size="md-6 sm-12">
+          </Row>
+        </div>
+      </Container>
+    );
+  }
+}
+
+export default AddReport;
+
+          /* <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>Accident List</h1>
             </Jumbotron>
@@ -149,12 +171,4 @@ class AddReport extends Component {
             ) : (
                 <h3>No Results to Display</h3>
               )}
-          </Col> */}
-        </Row>
-        </div>
-      </Container>
-    );
-  }
-}
-
-export default AddReport;
+          </Col> */
