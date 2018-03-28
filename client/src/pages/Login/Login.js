@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
+import Footer from "../../components/Footer";
 // import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import './Login.css';
@@ -74,7 +75,7 @@ class Login extends Component {
                   <option value="nonInsurance">Non-Insurance</option>
                 </select>
               </label> */}
-              <FormBtn id="loginBtn"
+              <FormBtn
                 disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
@@ -85,6 +86,7 @@ class Login extends Component {
           </Col>
         </Row>
         </div>
+        <Footer></Footer>
       </Container>
     );
   }

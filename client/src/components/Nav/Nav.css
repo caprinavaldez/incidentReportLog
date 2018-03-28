@@ -1,7 +1,7 @@
 .navbar-brand {
     font-family: Arial, Helvetica, sans-serif;
 }
-.navbar {
+#topNav {
     background-color: blue;
     padding-top: 200px;
 }

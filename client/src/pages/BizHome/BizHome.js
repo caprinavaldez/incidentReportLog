@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
+import Footer from "../../components/Footer";
 import API from "../../utils/API";
-import {BarChart} from 'react-easy-chart';
-import {PieChart} from 'react-easy-chart';
+import {BarChart, PieChart} from 'react-easy-chart';
 import "./BizHome.css";
 
 class BizHome extends Component {
@@ -67,14 +66,12 @@ class BizHome extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Jumbotron>
               <h1>
                 {this.state.biz.name}
               </h1>
-              <a href="/add" className="navbar-brand">
+              <a href="/add" className="btn btn-primary" style={{float: "right"}}>
                 Add New Report
               </a>   
-            </Jumbotron>
           </Col>
         </Row>
         <Row>
@@ -169,7 +166,9 @@ class BizHome extends Component {
         <Row>
           <h2>{this.state.biz.accidentlist}</h2>
         </Row>
+      <Footer></Footer>      
       </Container>
+
     );
   }
 }

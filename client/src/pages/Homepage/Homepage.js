@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
+import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import './Homepage.css';
 
@@ -28,11 +28,9 @@ class Homepage extends Component {
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <Jumbotron>
               <h1>
                 {this.state.appName}
               </h1>
-            </Jumbotron>
           </Col>
         </Row>
         <Row>
@@ -67,6 +65,7 @@ class Homepage extends Component {
             {/* <Link to="/">← Back to Home</Link> */}
           </Col>
         </Row>
+        <Footer></Footer>
       </Container>
     );
   }

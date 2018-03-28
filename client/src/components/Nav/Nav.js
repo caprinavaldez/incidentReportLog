@@ -2,7 +2,7 @@ import React from "react";
 import './Nav.css';
 
 const Nav = () => (
-  <nav className="navbar navbar-default">
+  <nav id="topNav" className="navbar navbar-default">
     <div className="container-fluid">
       <div className="navbar-header">
         <button type="button" className="collapsed navbar-toggle">

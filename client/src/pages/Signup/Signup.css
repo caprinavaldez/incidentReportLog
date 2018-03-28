@@ -6,11 +6,6 @@
     /* box-shadow: 0 2px 4px 0 rgba(181,181,181,.7); */
 }
 
-#signupBtn {
-    display: flex; 
-    justify-content: center;
-}
-
 h1 {
     text-align: center;
     padding-bottom: 10px

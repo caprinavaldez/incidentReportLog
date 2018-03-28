@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
+import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
@@ -67,9 +67,7 @@ class AddReport extends Component {
       <div id="addForm">
         <Row>
           <Col size="md-12">
-            <Jumbotron>
               <h1>Add New Report</h1>
-            </Jumbotron>
           </Col>
         </Row>
         <Row>
@@ -139,11 +137,12 @@ class AddReport extends Component {
                 disabled={!(this.state.date && this.state.person && this.state.location && this.state.category)}
                 onClick={this.handleFormSubmit}
               >
-                Submit New Accident
+                Submit
               </FormBtn>
             </form>
           </Row>
         </div>
+        <Footer></Footer>
       </Container>
     );
   }

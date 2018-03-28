@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Jumbotron from "../../components/Jumbotron";
+import Footer from "../../components/Footer";
 import API from "../../utils/API";
-import {BarChart} from 'react-easy-chart';
-import {PieChart} from 'react-easy-chart';
+import {BarChart, PieChart} from 'react-easy-chart';
 import './InsuranceHome.css';
 
 class InsuranceHome extends Component {
@@ -36,11 +35,9 @@ class InsuranceHome extends Component {
         </Row>      
         <Row>
           <Col size="md-12">
-            <Jumbotron>
               <h1>
                 {this.state.insurance.name}
               </h1>
-            </Jumbotron>
           </Col>
         </Row>
         <Row>
@@ -53,12 +50,16 @@ class InsuranceHome extends Component {
             <PieChart
               labels
               data={[
-                {key: 'Administration', value: 100},
+                {key: 'Health/Social Care', value: 100},
                 {key: 'Construction', value: 200},
-                {key: 'Agriculture', value: 10},
+                {key: 'Agriculture/Food & Restaurant', value: 10},
                 {key: 'Manufacturing', value: 5},
-                {key: 'Wholesale/Retail Trade', value: 42},
+                {key: 'Retail/Wholesale Trade', value: 42},
                 {key: 'Education and Training', value: 10},
+                {key: 'Arts/Entertainment', value: 10},
+                {key: 'Finance/Banking', value: 5},
+                {key: 'Administration', value: 10},
+                {key: 'Government/Military', value: 12}
               ]}
             /> 
             {/* <article>
@@ -103,7 +104,7 @@ class InsuranceHome extends Component {
               y: 2600
             },
             {
-              x: 'Agriculture',
+              x: 'Agriculture/Food & Restaurant',
               y: 1060
             },
             {
@@ -111,12 +112,28 @@ class InsuranceHome extends Component {
               y: 5000
             },
             {
-              x: 'Wholesale/Retail Trade',
+              x: 'Retail/Wholesale Trade',
               y: 999
             },
             {
               x: 'Education and Training',
               y: 1205
+            },
+            {
+              x: 'Arts/Entertainment',
+              y: 650
+            },
+            {
+              x: 'Finance/Banking',
+              y: 500
+            },
+            {
+              x: 'Administration',
+              y: 700
+            },
+            {
+              x: 'Government/Military',
+              y: 1000
             }
           ]}
         />
@@ -159,6 +176,7 @@ class InsuranceHome extends Component {
         />          
           </Col>   
         </Row>
+        <Footer></Footer>
       </Container>
     );
   }

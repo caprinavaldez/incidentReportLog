@@ -1,7 +1,12 @@
 #addForm {
-    padding: 10px 75px 10px 75px
+    margin: 10px 100px 10px 100px;
+    padding: 0 40px 20px 40px;
+    box-sizing: border-box;
+    background-color: rgba(181,181,181,.7);
+    /* box-shadow: 0 2px 4px 0 rgba(181,181,181,.7); */
 }
 
 label {
-    padding: 10px 0 10px 0
+    padding: 10px 0 10px 0;
+    margin-right: 100px
 }

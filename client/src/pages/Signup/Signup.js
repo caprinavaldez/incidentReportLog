@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
+import Footer from "../../components/Footer";
 // import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import './Signup.css';
@@ -108,7 +109,7 @@ class Signup extends Component {
                 name="password"
                 placeholder="Password (Required)"
               />
-              <FormBtn id="signupBtn"
+              <FormBtn
                 disabled={!(this.state.bizName && this.state.coType && this.state.email && this.state.password)}
                 onClick={this.handleFormSubmit}
               >
@@ -119,6 +120,7 @@ class Signup extends Component {
           </Col>
         </Row>
         </div>
+        <Footer></Footer>
       </Container>
     );
   }
