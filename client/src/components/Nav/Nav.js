@@ -27,9 +27,10 @@ const Nav = () => (
         </a>  
         <a href="/signup" className="navbar-brand">
           Sign-up
-        </a>          
+        </a>
       </div>
     </div>
+ 
   </nav>
 );
 
