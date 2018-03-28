@@ -7,6 +7,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import "./Add.css";
+//import { Link, Redirect } from 'react-router';
 
 class AddReport extends Component {
   state = {
@@ -22,20 +23,6 @@ class AddReport extends Component {
     // this.loadBooks();
   }
 
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // deleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
-
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -45,15 +32,19 @@ class AddReport extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.title && this.state.author) {
-    //   API.saveBook({
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     synopsis: this.state.synopsis
-    //   })
-    //     .then(res => this.loadBooks())
-    //     .catch(err => console.log(err));
-    // }
+    if (this.state.location && this.state.person) {   //user instead of person
+      API.saveIncident({
+        date: this.state.date,
+        location: this.state.location,
+        cost: this.state.cost,
+        person: this.state.person,
+        category: this.state.category,
+        notes: this.state.notes
+      })
+        //.then(res => console.log("Incident saved!"))
+        .then(res => this.props.history.push("/business"))
+        .catch(err => console.log(err));
+    }
   };
 
   render() {

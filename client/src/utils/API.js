@@ -16,5 +16,22 @@ export default {
   // Saves a book to the database
   saveBook: function(bookData) {
     return axios.post("/api/books", bookData);
+  },
+  /////////////////////////////////////////////
+  getIncidents: function() {
+    return axios.get("/api/incidents");
+  },
+  // Gets the incident with the given id
+  getIncident: function(id) {
+    return axios.get("/api/incidents/" + id);
+  },
+  // Deletes the incident with the given id
+  deleteIncident: function(id) {
+    return axios.delete("/api/incidents/" + id);
+  },
+  // Saves a incident to the database
+  saveIncident: function(incidentData) {
+    return axios.post("/api/incidents", incidentData);
   }
+   /////////////////////////////////////////////
 };

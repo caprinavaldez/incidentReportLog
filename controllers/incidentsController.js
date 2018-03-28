@@ -5,13 +5,19 @@ module.exports = {
   findAll: function(req, res) {
     db.Incident
       .find(req.query)
-      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     db.Incident
       .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  aggregate: function(req, res) {
+    db.Incident
+      //authenticate user? 
+      .group({_id, cost: -1, category: 1 }) //help
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

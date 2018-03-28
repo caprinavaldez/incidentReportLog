@@ -2,9 +2,9 @@ const db = require("../models");
 
 module.exports = {
     findAll: function(req, res) {
-        db.User
+        db.User   //.incident
         .find(req.query)
-        .sort({ date: -1 })
+        .sort({ date: -1 }) 
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
@@ -15,14 +15,15 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     create: function(req, res) {
-        if (req.user && req.user.id) {
+        //if (req.user && req.user.id) {
+            console.log(req);
             db.User
             .create(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-        } else{
-            res.send(401);
-        } 
+        //} else{
+            //res.send(401);
+        //} 
     },
     update: function(req, res) {
         db.User
