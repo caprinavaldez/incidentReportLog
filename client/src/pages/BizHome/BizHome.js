@@ -5,6 +5,28 @@ import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import {BarChart, PieChart} from 'react-easy-chart';
 import "./BizHome.css";
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+// import '../../client/node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+
+var products = [{
+  date: "01/01/2018",
+  person: "April",
+  location: "UCI",
+  category: "Slips, Trips, & Falls",
+  cost: "12,000",
+  notes: "Coding slips, trips, and falls"
+}, {
+  date: "02/05/2018",
+  person: "Catalina",
+  location: "UCI",
+  category: "Overexertion",
+  cost: "15,000",
+  notes: "I hate programming... it works! I LOVE programming!"
+}];
+
+const cellEditProp = {
+  mode: 'click'
+};
 
 class BizHome extends Component {
   state = {
@@ -15,6 +37,8 @@ class BizHome extends Component {
       accidentlist: "Table for Accident Report List"
     }
   };
+
+  
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
@@ -166,6 +190,45 @@ class BizHome extends Component {
         <Row>
           <h2>{this.state.biz.accidentlist}</h2>
         </Row>
+        {/* class MultiSortTable extends React.Component {
+  render() {
+    return ( */}
+      {/* Call getIncidents() */}
+      <div>
+        <BootstrapTable ref='table' data={ products } multiColumnSort={ 2 } cellEdit={ cellEditProp }>
+            <TableHeaderColumn dataField='date' dataSort={ true }>Date</TableHeaderColumn>
+            <TableHeaderColumn dataField='person' dataSort={ true }>Person(s)</TableHeaderColumn>
+            <TableHeaderColumn dataField='location' dataSort={ true }>Location</TableHeaderColumn>
+            <TableHeaderColumn dataField='cost' dataSort={ true }>Costs</TableHeaderColumn>
+            <TableHeaderColumn dataField='category' isKey dataSort={ true }>Category</TableHeaderColumn>
+            <TableHeaderColumn dataField='notes' dataSort={ true }>Notes</TableHeaderColumn>
+        </BootstrapTable>
+      </div>
+<link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css"></link>
+    {/* );
+  }
+} */}
+          {/* /* <Col size="md-6 sm-12">
+            <Jumbotron>
+              <h1>Accident List</h1>
+            </Jumbotron>
+            {this.state.books.length ? (
+              <List>
+                {this.state.books.map(book => (
+                  <ListItem key={book._id}>
+                    <Link to={"/books/" + book._id}>
+                      <strong>
+                        {book.title} by {book.author}
+                      </strong>
+                    </Link>
+                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+                <h3>No Results to Display</h3>
+              )}
+          </Col> */ }
       <Footer></Footer>      
       </Container>
 
