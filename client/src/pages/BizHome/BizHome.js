@@ -6,7 +6,9 @@ import API from "../../utils/API";
 import {BarChart, PieChart} from 'react-easy-chart';
 import "./BizHome.css";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+import Report from "../Add/Add.js";
 // import '../../client/node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+// var incidents = Report.loadIncidents().then(res => console.log('yas'))
 
 var products = [{
   date: "01/01/2018",
@@ -35,17 +37,23 @@ class BizHome extends Component {
       monthgraph: "Graph of monthly accidents",
       categorygraph: "Graph of accidents by category",
       accidentlist: "Table for Accident Report List"
-    }
+    },
+    incidents: []
   };
 
   
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+  // When this component mounts, grab the list of incidents for this business
   componentDidMount() {
-    // API.getBook(this.props.match.params.id)
-    //   .then(res => this.setState({ book: res.data }))
-    //   .catch(err => console.log(err));
-  }
+    this.loadIncidents();
+  };
+
+  loadIncidents = () => {
+    API.getIncidents()
+      .then(res =>
+        this.setState({ incidents: res.data })
+      )
+      .catch(err => console.log(err));
+  };
 
   // mouseOverHandler(d, e) {
   //   this.setState({
@@ -194,8 +202,9 @@ class BizHome extends Component {
   render() {
     return ( */}
       {/* Call getIncidents() */}
+      {/* AddReport.loadincidents(); */}
       <div>
-        <BootstrapTable ref='table' data={ products } multiColumnSort={ 2 } cellEdit={ cellEditProp }>
+        <BootstrapTable ref='table' data={ this.state.incidents } multiColumnSort={ 2 }>
             <TableHeaderColumn dataField='date' dataSort={ true }>Date</TableHeaderColumn>
             <TableHeaderColumn dataField='person' dataSort={ true }>Person(s)</TableHeaderColumn>
             <TableHeaderColumn dataField='location' dataSort={ true }>Location</TableHeaderColumn>
@@ -229,7 +238,6 @@ class BizHome extends Component {
                 <h3>No Results to Display</h3>
               )}
           </Col> */ }
-      <Footer></Footer>      
       </Container>
 
     );

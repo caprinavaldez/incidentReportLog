@@ -176,7 +176,6 @@ class InsuranceHome extends Component {
         />          
           </Col>   
         </Row>
-        <Footer></Footer>
       </Container>
     );
   }

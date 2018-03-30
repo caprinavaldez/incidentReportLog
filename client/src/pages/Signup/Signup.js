@@ -120,7 +120,6 @@ class Signup extends Component {
           </Col>
         </Row>
         </div>
-        <Footer></Footer>
       </Container>
     );
   }

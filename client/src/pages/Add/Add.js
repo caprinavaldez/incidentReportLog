@@ -11,6 +11,7 @@ import "./Add.css";
 
 class AddReport extends Component {
   state = {
+    incidents: [],
     date: "",
     person: "",
     location: "",
@@ -19,9 +20,6 @@ class AddReport extends Component {
     notes: ""
   };
 
-  componentDidMount() {
-    // this.loadBooks();
-  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -41,7 +39,8 @@ class AddReport extends Component {
         category: this.state.category,
         notes: this.state.notes
       })
-        //.then(res => console.log("Incident saved!"))
+        // .then(res => console.log(res.data))
+        // .then(res => this.loadIncidents())
         .then(res => this.props.history.push("/business"))
         .catch(err => console.log(err));
     }
@@ -133,7 +132,25 @@ class AddReport extends Component {
             </form>
           </Row>
         </div>
-        <Footer></Footer>
+        {/* <Row>
+              <h1>Accident List</h1>
+            {this.state.incidents.length ? (
+              <List>
+                {this.state.incidents.map(incident => (
+                  <ListItem key={incident._id}>
+                    <Link to={"/books/" + incident._id}>
+                      <strong>
+                        {incident.date} by {incident.person}
+                      </strong>
+                    </Link> */}
+                    {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
+                  {/* </ListItem>
+                ))}
+              </List>
+            ) : (
+                <h3>No Results to Display</h3>
+              )}
+          </Row> */}
       </Container>
     );
   }

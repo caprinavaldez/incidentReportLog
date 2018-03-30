@@ -65,7 +65,6 @@ class Homepage extends Component {
             {/* <Link to="/">← Back to Home</Link> */}
           </Col>
         </Row>
-        <Footer></Footer>
       </Container>
     );
   }
