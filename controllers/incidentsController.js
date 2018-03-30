@@ -14,7 +14,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  groupByUser: function(req, res) {
+  groupByCategory: function(req, res) {
     db.Incident
       .aggregate([
         {
@@ -24,7 +24,17 @@ module.exports = {
           }
         }
        ])
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log(dbModel);
+        let incidents = [];
+        dbModel.forEach((i) => {
+          incidents.push({
+            key: i._id,
+            value: i.count
+          });
+        })
+        res.json(incidents);
+      })
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
