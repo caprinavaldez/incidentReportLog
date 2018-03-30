@@ -7,28 +7,10 @@ import {BarChart, PieChart} from 'react-easy-chart';
 import "./BizHome.css";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Report from "../Add/Add.js";
-// import '../../client/node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-// var incidents = Report.loadIncidents().then(res => console.log('yas'))
 
-var products = [{
-  date: "01/01/2018",
-  person: "April",
-  location: "UCI",
-  category: "Slips, Trips, & Falls",
-  cost: "12,000",
-  notes: "Coding slips, trips, and falls"
-}, {
-  date: "02/05/2018",
-  person: "Catalina",
-  location: "UCI",
-  category: "Overexertion",
-  cost: "15,000",
-  notes: "I hate programming... it works! I LOVE programming!"
-}];
-
-const cellEditProp = {
-  mode: 'click'
-};
+// const cellEditProp = {
+//   mode: 'click'
+// };
 
 class BizHome extends Component {
   state = {
@@ -38,7 +20,15 @@ class BizHome extends Component {
       categorygraph: "Graph of accidents by category",
       accidentlist: "Table for Accident Report List"
     },
-    incidents: []
+    incidents: [],
+    incidentsByCategory: [
+      {key: 'Overexertion Involving Outside Source', value: 100},
+      {key: 'Slips, Trips, or Falls', value: 200},
+      {key: 'Other Exertions or Bodily Reactions', value: 10},
+      {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
+      {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
+      {key: 'On the Job Assault/Violent Act', value: 10},
+    ]
   };
 
   
@@ -54,6 +44,14 @@ class BizHome extends Component {
       )
       .catch(err => console.log(err));
   };
+
+  loadIncidentsByCategory = () => {
+    API.getIncidentsByCategory()
+      .then(res =>
+        this.setValue({ incidentsByCategory: res.data })
+      )
+      .catch(err => console.log(err));    
+  }
 
   // mouseOverHandler(d, e) {
   //   this.setState({
@@ -179,14 +177,7 @@ class BizHome extends Component {
             <h2>{this.state.biz.categorygraph}</h2>
       <PieChart
         labels
-        data={[
-          {key: 'Overexertion Involving Outside Source', value: 100},
-          {key: 'Slips, Trips, or Falls', value: 200},
-          {key: 'Other Exertions or Bodily Reactions', value: 10},
-          {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
-          {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
-          {key: 'On the Job Assault/Violent Act', value: 10},
-        ]}
+        data={this.state.incidentsByCategory}
         // mouseOverHandler={this.mouseOverHandler}
         // mouseOutHandler={this.mouseOutHandler.bind(this)}
         // mouseMoveHandler={this.mouseMoveHandler.bind(this)}

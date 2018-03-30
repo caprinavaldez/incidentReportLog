@@ -87,12 +87,12 @@ class AddReport extends Component {
               <label>
                 <select name="category" value={this.state.category} onChange={this.handleInputChange}>
                   <option>Select Accident Category: </option> 
-                  <option value="overexertion">Overexertion Involving Outside Source</option>
-                  <option value="slips">Slips, Trips, or Falls</option>
-                  <option value="otherExertions">Other Exertions or Bodily Reactions</option>
-                  <option value="repetitiveMotions">Repetitive Motions Involving Micro-Tasks</option>
-                  <option value="caughtInStruck">Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)</option>
-                  <option value="assault">On the Job Assault/Violent Act</option>
+                  <option>Overexertion Involving Outside Source</option>
+                  <option>Slips, Trips, or Falls</option>
+                  <option>Other Exertions or Bodily Reactions</option>
+                  <option>Repetitive Motions Involving Micro-Tasks</option>
+                  <option>Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)</option>
+                  <option>On the Job Assault/Violent Act</option>
                 </select>
               </label>
               </Col>

@@ -32,6 +32,9 @@ export default {
   // Saves a incident to the database
   saveIncident: function(incidentData) {
     return axios.post("/api/incidents", incidentData);
-  }
+  },
+  getIncidentByCategory: function() {
+    return axios.get("/api/incidents/counts-by-category");
+  },
    /////////////////////////////////////////////
 };
