@@ -1,0 +1,8 @@
+.backgroundPic {
+    background-image: url("/background.png");
+    background-attachment: fixed;
+    background-size: 100%;
+}
+.border {
+    margin-top: -180px;
+}
