@@ -18,6 +18,7 @@ export default {
     return axios.post("/api/books", bookData);
   },
   /////////////////////////////////////////////
+  // Gets all incidents
   getIncidents: function() {
     return axios.get("/api/incidents");
   },
@@ -38,6 +39,18 @@ export default {
   },
   getIncidentByMonth: function() {
     return axios.get("/api/incidents/counts-by-month");
-  }
+  },
    /////////////////////////////////////////////
+  // Gets all users
+  getUsers: function() {
+    return axios.get("/api/users");
+  },
+  // Gets the user with the given id
+  getUser: function(id) {
+    return axios.get("/api/users/" + id);
+  },
+  // Saves a user to the database
+  saveNewUser: function(userData) {
+    return axios.post("/api/users", userData);
+  }  
 };

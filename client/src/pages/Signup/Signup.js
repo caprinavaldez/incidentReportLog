@@ -10,6 +10,7 @@ import './Signup.css';
 
 class Signup extends Component {
   state = {
+    user: [],
     bizName: "",
     coType: "",
     bizCategory: "",
@@ -18,22 +19,16 @@ class Signup extends Component {
   };
 
   componentDidMount() {
-    // this.loadBooks();
+    this.saveNewUser();
   }
 
-  // loadBooks = () => {
-  //   API.getBooks()
-  //     .then(res =>
-  //       this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-  // deleteBook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
+  saveNewUser = () => {
+    API.saveNewUser()
+      .then(res =>
+        this.setState({ user: res.data, bizName: "", coType: "", bizCategory: "", email: "", password: "" })
+      )
+      .catch(err => console.log(err));
+  };
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -44,15 +39,18 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // if (this.state.title && this.state.author) {
-    //   API.saveBook({
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     synopsis: this.state.synopsis
-    //   })
-    //     .then(res => this.loadBooks())
-    //     .catch(err => console.log(err));
-    // }
+    if (this.state.user && this.state.bizName) {
+      API.saveNewUser({
+        user: this.state.user,
+        bizName: this.state.bizName,
+        coType: this.state.coType,
+        bizCategory: this.state.bizCategory,
+        email: this.state.email,
+        password: this.state.password
+      })
+        .then(res => this.saveNewUser())
+        .catch(err => console.log(err));
+    }
   };
 
   render() {
