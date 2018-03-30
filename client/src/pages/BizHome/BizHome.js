@@ -14,6 +14,7 @@ import Report from "../Add/Add.js";
 
 class BizHome extends Component {
   state = {
+
     biz: {
       name: "Business Name",
       monthgraph: "Graph of monthly accidents",
@@ -26,7 +27,7 @@ class BizHome extends Component {
       {key: 'Slips, Trips, or Falls', value: 200},
       {key: 'Other Exertions or Bodily Reactions', value: 10},
       {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
-      {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
+      {key: 'Caught In/Compressed r Struck By/Against Equipment(s) or Object(s)', value: 42},
       {key: 'On the Job Assault/Violent Act', value: 10},
     ]
   };
@@ -35,6 +36,7 @@ class BizHome extends Component {
   // When this component mounts, grab the list of incidents for this business
   componentDidMount() {
     this.loadIncidents();
+    this.loadIncidentsByCategory();
   };
 
   loadIncidents = () => {
@@ -46,12 +48,13 @@ class BizHome extends Component {
   };
 
   loadIncidentsByCategory = () => {
-    API.getIncidentsByCategory()
+    API.getIncidentByCategory()
       .then(res =>
-        this.setValue({ incidentsByCategory: res.data })
+        this.setState({ incidentsByCategory: res.data })
       )
       .catch(err => console.log(err));    
   }
+ 
 
   // mouseOverHandler(d, e) {
   //   this.setState({
@@ -179,7 +182,7 @@ class BizHome extends Component {
         labels
         data={this.state.incidentsByCategory}
         // mouseOverHandler={this.mouseOverHandler}
-        // mouseOutHandler={this.mouseOutHandler.bind(this)}
+        // mouseOutHandler={this.mouseOutHandler .bind(this)}
         // mouseMoveHandler={this.mouseMoveHandler.bind(this)}
         // padding={10}
         // styles={this.styles}
