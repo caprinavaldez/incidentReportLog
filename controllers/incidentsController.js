@@ -14,6 +14,29 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  groupByMonth: function(req, res) {
+    db.Incident
+      .aggregate([
+        {
+          $group: {
+            _id: "$date",
+            count: { $sum: 1 }
+          }
+        }
+      ])
+      .then (dbModel => {
+        console.log(dbModel);
+        let incidents = [];
+        dbModel.forEach((i) => {
+          incidents.push({
+            x: i._id,
+            y: i.count
+          });
+        })
+        res.json(incidents);
+      })
+      .catch(err => res.status(422).json(err));
+  },
   groupByCategory: function(req, res) {
     db.Incident
       .aggregate([

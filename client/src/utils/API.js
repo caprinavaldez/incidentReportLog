@@ -36,5 +36,8 @@ export default {
   getIncidentByCategory: function() {
     return axios.get("/api/incidents/counts-by-category");
   },
+  getIncidentByMonth: function() {
+    return axios.get("/api/incidents/counts-by-month");
+  }
    /////////////////////////////////////////////
 };
