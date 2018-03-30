@@ -10,10 +10,11 @@ import Nav from "./components/Nav";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import './App.css';
 
 const App = () => (
   <Router>
-    <div>
+    <div className="backgroundPic">
       <Nav />
       <Switch>
         <Route exact path="/" component={Homepage} />

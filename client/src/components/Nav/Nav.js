@@ -4,6 +4,7 @@ import './Nav.css';
 const Nav = () => (
   <nav id="topNav" className="navbar navbar-default">
     <div className="container-fluid">
+      
       <div className="navbar-header">
         <button type="button" className="collapsed navbar-toggle">
           <span className="sr-only">Toggle navigation</span>
@@ -12,25 +13,24 @@ const Nav = () => (
           <span className="icon-bar" />
         </button>
         <a href="/" className="navbar-brand">
-          Home
+          <h4>Home</h4>
         </a>
         <a href="/business" className="navbar-brand">
-          Business
+          <h4>Business</h4>
         </a>
         <a href="/insurance" className="navbar-brand">
-          Insurance
+          <h4>Insurance</h4>
         </a> 
         </div>
         <div className="navbar-header navbar-right">
         <a href="/login" className="navbar-brand">
-          Login
+          <h4>Login</h4>
         </a>  
         <a href="/signup" className="navbar-brand">
-          Sign-up
+          <h4>Sign-up</h4>  
         </a>
       </div>
     </div>
- 
   </nav>
 );
 

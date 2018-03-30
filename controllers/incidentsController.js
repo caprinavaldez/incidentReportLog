@@ -14,10 +14,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  aggregate: function(req, res) {
+  groupByUser: function(req, res) {
     db.Incident
-      //authenticate user? 
-      .group({_id, cost: -1, category: 1 }) //help
+      .aggregate([
+        {
+          $group: {
+            _id: "$category",
+            count: { $sum: 1}
+          }
+        }
+       ])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
