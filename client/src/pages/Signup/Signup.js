@@ -49,6 +49,7 @@ class Signup extends Component {
         password: this.state.password
       })
         .then(res => this.saveNewUser())
+        .then(res => this.props.history.push("/login"))
         .catch(err => console.log(err));
     }
   };
