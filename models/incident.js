@@ -7,8 +7,8 @@ const incidentSchema = new Schema({
   cost: { type: String, required: true },
   person: { type: String, required: true },
   category: { type: String, required: true },
-  notes: String,
-  //user: {} (USER ID)
+  notes: { type: String }
+  //user: { } 
 });
 
 const Incident = mongoose.model("Incident", incidentSchema);

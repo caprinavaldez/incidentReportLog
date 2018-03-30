@@ -9,10 +9,14 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     findById: function(req, res) {
+     if (req.user && req.user.id) {
         db.User
         .findById(req.params.id)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+        } else {
+            res.send(401);
+        }
     },
     create: function(req, res) {
         //if (req.user && req.user.id) {
@@ -21,7 +25,7 @@ module.exports = {
             .create(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-        //} else{
+        //} else {
             //res.send(401);
         //} 
     },
