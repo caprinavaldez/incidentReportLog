@@ -11,6 +11,10 @@ router
   .route("/counts-by-category")
   .get(incidentController.groupByCategory);
 
+router
+  .route("/counts-by-month")
+  .get(incidentController.groupByMonth);
+
 // Matches with "/api/incidents/:id"
 router
   .route("/:id")

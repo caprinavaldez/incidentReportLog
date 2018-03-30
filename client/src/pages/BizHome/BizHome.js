@@ -14,7 +14,6 @@ import Report from "../Add/Add.js";
 
 class BizHome extends Component {
   state = {
-
     biz: {
       name: "Business Name",
       monthgraph: "Graph of monthly accidents",
@@ -29,6 +28,45 @@ class BizHome extends Component {
       {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
       {key: 'Caught In/Compressed r Struck By/Against Equipment(s) or Object(s)', value: 42},
       {key: 'On the Job Assault/Violent Act', value: 10},
+    ],
+    incidentBarChart: [
+      {
+        x: 'January',
+        y: 46
+      },{
+        x: 'February',
+        y: 26
+      },{
+        x: 'March',
+        y: 10
+      },{
+        x: 'April',
+        y: 5
+      },{
+        x: 'May',
+        y: 50
+      },{
+        x: 'June',
+        y: 12
+      },{
+        x: 'July',
+        y: 32
+      },{
+        x: 'August',
+        y: 20
+      },{
+        x: 'September',
+        y: 20
+      },{
+        x: 'October',
+        y: 12
+      },{
+        x: 'November',
+        y: 40
+      },{
+        x: 'December',
+        y: 40
+      }
     ]
   };
 
@@ -37,6 +75,7 @@ class BizHome extends Component {
   componentDidMount() {
     this.loadIncidents();
     this.loadIncidentsByCategory();
+    this.loadIncidentsByMonth();
   };
 
   loadIncidents = () => {
@@ -53,6 +92,13 @@ class BizHome extends Component {
         this.setState({ incidentsByCategory: res.data })
       )
       .catch(err => console.log(err));    
+  }
+  loadIncidentsByMonth = () => {
+    API.getIncidentByMonth()
+      .then(res => 
+        this.setState({ incidentBarChart: res.data})
+      )
+      .catch(err => console.log(err));
   }
  
 
@@ -118,56 +164,7 @@ class BizHome extends Component {
           colorBars
           height={250}
           width={650}
-          data={[
-            {
-              x: 'January',
-              y: 46
-            },
-            {
-              x: 'February',
-              y: 26
-            },
-            {
-              x: 'March',
-              y: 10
-            },
-            {
-              x: 'April',
-              y: 5
-            },
-            {
-              x: 'May',
-              y: 50
-            },
-            {
-              x: 'June',
-              y: 12
-            },
-            {
-              x: 'July',
-              y: 32
-            },
-            {
-              x: 'August',
-              y: 20
-            },
-            {
-              x: 'September',
-              y: 20
-            },
-            {
-              x: 'October',
-              y: 12
-            },
-            {
-              x: 'November',
-              y: 40
-            },
-            {
-              x: 'December',
-              y: 40
-            }
-          ]}
+          data={this.state.incidentBarChart}
         />            
             {/* <article>
               <h1>Description</h1>
