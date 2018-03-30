@@ -28,9 +28,9 @@ class Homepage extends Component {
       <Container fluid>
         <Row>
           <Col size="md-12">
-              <h1>
-                {this.state.appName}
-              </h1>
+            <div className="logo">
+              <img src="/logo2Name.png"/>
+            </div>
           </Col>
         </Row>
         <Row>
