@@ -26,7 +26,7 @@ class BizHome extends Component {
       {key: 'Slips, Trips, or Falls', value: 200},
       {key: 'Other Exertions or Bodily Reactions', value: 10},
       {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
-      {key: 'Caught In/Compressed r Struck By/Against Equipment(s) or Object(s)', value: 42},
+      {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
       {key: 'On the Job Assault/Violent Act', value: 10},
     ],
     incidentBarChart: [
@@ -92,14 +92,15 @@ class BizHome extends Component {
         this.setState({ incidentsByCategory: res.data })
       )
       .catch(err => console.log(err));    
-  }
+  };
+
   loadIncidentsByMonth = () => {
     API.getIncidentByMonth()
       .then(res => 
         this.setState({ incidentBarChart: res.data})
       )
       .catch(err => console.log(err));
-  }
+  };
  
 
   // mouseOverHandler(d, e) {

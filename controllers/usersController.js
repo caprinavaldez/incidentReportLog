@@ -19,15 +19,15 @@ module.exports = {
         }
     },
     create: function(req, res) {
-        //if (req.user && req.user.id) {
+        // if (req.user && req.user.id) {
             console.log(req);
             db.User
             .create(req.body)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
-        //} else {
-            //res.send(401);
-        //} 
+        // } else {
+        //     res.send(401);
+        // } 
     },
     update: function(req, res) {
         db.User

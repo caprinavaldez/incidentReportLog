@@ -17,7 +17,8 @@ class AddReport extends Component {
     location: "",
     category: "",
     cost: "",
-    notes: ""
+    notes: "",
+    //user: 
   };
 
 
