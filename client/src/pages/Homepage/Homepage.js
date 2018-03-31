@@ -8,10 +8,10 @@ import './Homepage.css';
 class Homepage extends Component {
   state = {
     appName: "Accident to Action",
-    description: "Everyday Companies come to keep record of accidents reported and Insurance companies come to see statistics on accidents.",
+    description: "We do things simple. Accident to Action has been in the business to assist industries by providing clean statistical data to insurance companies and businesses. We save time when reporting accidents, viewing the data, giving ideas and suggestions, and allowing for thousands to millions of dollars to be saved by companies.",
     exampleVisuals: "Example Accident Images and Graphs will go here",
     benefits: "Benefits of Usage description here",
-    benefitsColOne: "Lorem ipsum dolor sit amet, ne wisi partem mentitum qui. Sea te nisl affert repudiare, nibh iudico sea ad. Augue molestiae te pri, an mea probo scripta. An vim nusquam epicurei liberavisse. Quot primis accusam eos ne, rebum scaevola complectitur has no. Sed ei tacimates iudicabit erroribus, sit aeterno accumsan tractatos in, essent philosophia mei in.",
+    benefitsColOne: "Lore ipsum dolor sit amet, ne wisi partem mentitum qui. Sea te nisl affert repudiare, nibh iudico sea ad. Augue molestiae te pri, an mea probo scripta. An vim nusquam epicurei liberavisse. Quot primis accusam eos ne, rebum scaevola complectitur has no. Sed ei tacimates iudicabit erroribus, sit aeterno accumsan tractatos in, essent philosophia mei in.",
     benefitsColTwo: "Id mel postea integre deleniti, omnis commune apeirian ut sea. Laudem mediocritatem ex pro, cum cu altera oporteat singulis, sea commodo constituto delicatissimi ei. Cu qui laudem delectus. Tantas recusabo per ea, prima omnium scribentur eum no. Eu vis habeo harum labores, sumo ferri sonet nec at.",
     benefitsColThree: "Eam iusto accusamus ei, et ius cibo graeci verear, ut mei pertinax sensibus ullamcorper. Mei ei equidem epicurei, duo ceteros pertinacia delicatissimi eu, iriure suscipit oportere eum in. Cu per agam habeo blandit, usu eligendi dignissim ex. Tation maluisset dignissim eam cu, alia scaevola ne pri, ei meis noster usu."
   };
@@ -36,7 +36,7 @@ class Homepage extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Description</h1>
+              <h1>About Us</h1>
               <p>
                 {this.state.description}
               </p>
