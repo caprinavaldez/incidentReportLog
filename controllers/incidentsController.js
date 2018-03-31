@@ -85,8 +85,8 @@ module.exports = {
         },
         {
           $addFields: {
-            x: "$_id",
-            y: "$count"
+            key: "$_id",
+            value: "$count"
           }
         }
        ])

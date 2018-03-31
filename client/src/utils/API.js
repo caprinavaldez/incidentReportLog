@@ -1,23 +1,6 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books");
-  },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
-  },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
-  },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
-  },
-  /////////////////////////////////////////////
   // Gets all incidents
   getIncidents: function() {
     return axios.get("/api/incidents");
@@ -60,10 +43,18 @@ export default {
   },
   // Get incidents by industry
   getIncidentsByIndustry: function() {
-    return axios.get("/api/users/counts-by-industry");
+    return axios.get("/api/incidents/counts-by-industry");
   },
   //Get sum of incidents by category
   getSumByCategory: function() {
-    return axios.get("/api/users/counts-by-category");
+    return axios.get("/api/incidents/counts-by-category");
+  },
+    //Get sum of category cost
+  byCategoryCost: function() {
+    return axios.get("/api/users/counts-by-categorycost");
+  },
+    //Get sum industry cost
+  byIndustryCost: function() {   
+    return axios.get("/api/users/counts-by-industrycost");
   },
 };
