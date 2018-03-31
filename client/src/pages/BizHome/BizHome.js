@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import Footer from "../../components/Footer";
 import API from "../../utils/API";
-import {BarChart, PieChart} from 'react-easy-chart';
+import {BarChart, PieChart, ToolTip} from 'react-easy-chart';
 import "./BizHome.css";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import Report from "../Add/Add.js";
@@ -13,69 +13,76 @@ import Report from "../Add/Add.js";
 // };
 
 class BizHome extends Component {
-  state = {
-    biz: {
-      name: "Business Name",
-      monthgraph: "Graph of monthly accidents",
-      categorygraph: "Graph of accidents by category",
-      accidentlist: "Table for Accident Report List"
-    },
-    incidents: [],
-    incidentsByCategory: [
-      {key: 'Overexertion Involving Outside Source', value: 100},
-      {key: 'Slips, Trips, or Falls', value: 200},
-      {key: 'Other Exertions or Bodily Reactions', value: 10},
-      {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
-      {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
-      {key: 'On the Job Assault/Violent Act', value: 10},
-    ],
-    incidentBarChart: [
-      {
-        x: 'January',
-        y: 46
-      },{
-        x: 'February',
-        y: 26
-      },{
-        x: 'March',
-        y: 10
-      },{
-        x: 'April',
-        y: 5
-      },{
-        x: 'May',
-        y: 50
-      },{
-        x: 'June',
-        y: 12
-      },{
-        x: 'July',
-        y: 32
-      },{
-        x: 'August',
-        y: 20
-      },{
-        x: 'September',
-        y: 20
-      },{
-        x: 'October',
-        y: 12
-      },{
-        x: 'November',
-        y: 40
-      },{
-        x: 'December',
-        y: 40
-      }
-    ]
-  };
+  constructor(props) {
+    super(props);
 
-  
+    this.state = {
+      biz: {
+        name: "Business Name",
+        monthgraph: "Graph of monthly accidents",
+        categorygraph: "Graph of accidents by category",
+        accidentlist: "Table for Accident Report List"
+      },
+      incidents: [],
+      incidentsByCategory: [
+        {key: 'Overexertion Involving Outside Source', value: 100},
+        {key: 'Slips, Trips, or Falls', value: 200},
+        {key: 'Other Exertions or Bodily Reactions', value: 10},
+        {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
+        {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
+        {key: 'On the Job Assault/Violent Act', value: 10},
+      ],
+      incidentBarChart: [
+        {
+          x: 'January',
+          y: 46
+        },{
+          x: 'February',
+          y: 26
+        },{
+          x: 'March',
+          y: 10
+        },{
+          x: 'April',
+          y: 5
+        },{
+          x: 'May',
+          y: 50
+        },{
+          x: 'June',
+          y: 12
+        },{
+          x: 'July',
+          y: 32
+        },{
+          x: 'August',
+          y: 20
+        },{
+          x: 'September',
+          y: 20
+        },{
+          x: 'October',
+          y: 12
+        },{
+          x: 'November',
+          y: 40
+        },{
+          x: 'December',
+          y: 40
+        }
+      ]
+    };
+
+    // this.mouseOverHandler = this.mouseOverHandler.bind(this);
+    // this.createTooltip = this.createTooltip.bind(this);
+  }
+
+   
   // When this component mounts, grab the list of incidents for this business
   componentDidMount() {
     this.loadIncidents();
     this.loadIncidentsByCategory();
-    this.loadIncidentsByMonth();
+    this.loadIncidentsByMonth();    
   };
 
   loadIncidents = () => {
@@ -104,12 +111,15 @@ class BizHome extends Component {
  
 
   // mouseOverHandler(d, e) {
+  //   // console.log(d, e);
+  //   console.log(this);
   //   this.setState({
   //     showToolTip: true,
   //     top: e.y,
   //     left: e.x,
   //     value: d.value,
-  //     key: d.data.key});
+  //     key: d.data.key
+  //   });
   // }
 
   // mouseMoveHandler(e) {
@@ -139,6 +149,7 @@ class BizHome extends Component {
   render() {
     return (
       <Container fluid>
+        {/* {this.createTooltip()} */}
         <Row>
           <Col size="md-2">
             <Link to="/">← Back to Home</Link>
@@ -159,14 +170,14 @@ class BizHome extends Component {
           <Col size="md-6">
             <h2>{this.state.biz.monthgraph}</h2>
             <BarChart
-          axisLabels={{x: 'Month', y: 'Amount'}}
-          axes
-          grid
-          colorBars
-          height={250}
-          width={650}
-          data={this.state.incidentBarChart}
-        />            
+              axisLabels={{x: 'Month', y: 'Amount'}}
+              axes
+              grid
+              colorBars
+              height={250}
+              width={650}
+              data={this.state.incidentBarChart}
+            />            
             {/* <article>
               <h1>Description</h1>
               <p>
@@ -176,15 +187,15 @@ class BizHome extends Component {
           </Col>
           <Col size="md-6">
             <h2>{this.state.biz.categorygraph}</h2>
-      <PieChart
-        labels
-        data={this.state.incidentsByCategory}
-        // mouseOverHandler={this.mouseOverHandler}
-        // mouseOutHandler={this.mouseOutHandler .bind(this)}
-        // mouseMoveHandler={this.mouseMoveHandler.bind(this)}
-        // padding={10}
-        // styles={this.styles}
-      />            
+            <PieChart
+              data={this.state.incidentsByCategory}
+              labels
+              // mouseOverHandler={this.mouseOverHandler}
+              // mouseOutHandler={this.mouseOutHandler.bind(this)}
+              // mouseMoveHandler={this.mouseMoveHandler.bind(this)}
+              // padding={10}
+              // styles={this.styles}
+            />            
           </Col>
         </Row>    
         <Row>
