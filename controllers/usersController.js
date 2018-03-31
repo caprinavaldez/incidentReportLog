@@ -18,6 +18,52 @@ module.exports = {
             res.send(401);
         }
     },
+    groupByIndustry: function(req, res) {
+        db.User
+          .aggregate([
+            {
+              $group: {
+                _id: "$coType",
+                count: { $sum: 1}
+              }
+            }
+           ])
+          .then(dbModel => {
+            console.log(dbModel);
+            let incidents = [];
+            dbModel.forEach((i) => {
+              incidents.push({
+                key: i._id,
+                value: i.count
+              });
+            })
+            res.json(incidents);
+          })
+          .catch(err => res.status(422).json(err));
+    },
+    groupByCategory: function(req, res) {
+        db.User
+          .aggregate([
+            {
+              $group: {
+                _id: "$category",
+                count: { $sum: 1}
+              }
+            }
+           ])
+          .then(dbModel => {
+            console.log(dbModel);
+            let incidents = [];
+            dbModel.forEach((i) => {
+              incidents.push({
+                key: i._id,
+                value: i.count
+              });
+            })
+            res.json(incidents);
+          })
+          .catch(err => res.status(422).json(err));
+    },
     create: function(req, res) {
         // if (req.user && req.user.id) {
             console.log(req);
@@ -41,6 +87,7 @@ module.exports = {
         .then(dbModel => dbModel.remove())
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-    }
+    },
+
 };
 
