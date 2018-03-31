@@ -46,7 +46,7 @@ module.exports = {
           .aggregate([
             {
               $group: {
-                _id: "$category",
+                _id: "$bizCategory",
                 count: { $sum: 1}
               }
             }
