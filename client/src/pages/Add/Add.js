@@ -133,50 +133,9 @@ class AddReport extends Component {
             </form>
           </Row>
         </div>
-        {/* <Row>
-              <h1>Accident List</h1>
-            {this.state.incidents.length ? (
-              <List>
-                {this.state.incidents.map(incident => (
-                  <ListItem key={incident._id}>
-                    <Link to={"/books/" + incident._id}>
-                      <strong>
-                        {incident.date} by {incident.person}
-                      </strong>
-                    </Link> */}
-                    {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
-                  {/* </ListItem>
-                ))}
-              </List>
-            ) : (
-                <h3>No Results to Display</h3>
-              )}
-          </Row> */}
       </Container>
     );
   }
 }
 
 export default AddReport;
-
-          /* <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Accident List</h1>
-            </Jumbotron>
-            {this.state.books.length ? (
-              <List>
-                {this.state.books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
-                      <strong>
-                        {book.title} by {book.author}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-                <h3>No Results to Display</h3>
-              )}
-          </Col> */
