@@ -8,7 +8,7 @@ import './Homepage.css';
 class Homepage extends Component {
   state = {
     appName: "Accident to Action",
-    description: "Everyday Companies come to keep record of accidents reported and Insurance companies come to see statistics on accidents.",
+    description: "We do things simple. Accident to Action has been in the business to assist industries by providing clean statistical data to insurance companies and businesses. We save time when reporting accidents, viewing the data, giving ideas and suggestions, and allowing for thousands to millions of dollars to be saved by companies.",
     exampleVisuals: "Example Accident Images and Graphs will go here",
     benefits: "Benefits of Usage description here",
     benefitsColOne: "Lorem ipsum dolor sit amet, ne wisi partem mentitum qui. Sea te nisl affert repudiare, nibh iudico sea ad. Augue molestiae te pri, an mea probo scripta. An vim nusquam epicurei liberavisse. Quot primis accusam eos ne, rebum scaevola complectitur has no. Sed ei tacimates iudicabit erroribus, sit aeterno accumsan tractatos in, essent philosophia mei in.",
@@ -36,7 +36,7 @@ class Homepage extends Component {
         <Row>
           <Col size="md-10 md-offset-1">
             <article>
-              <h1>Description</h1>
+              <h1>About Us</h1>
               <p>
                 {this.state.description}
               </p>
