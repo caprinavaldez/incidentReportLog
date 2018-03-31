@@ -15,15 +15,50 @@ class InsuranceHome extends Component {
       categorygraph: "Graph for Amt of Accidents by Category",
       industrycosts: "Graph for Avg Accident Costs by Industry",
       categorycosts: "Graph for Avg Accident Costs by Category"
-    }
+    },
+    incidentsByIndustry: [
+      {key: 'Health/Social Care', value: 100},
+      {key: 'Construction', value: 200},
+      {key: 'Agriculture/Food & Restaurant', value: 10},
+      {key: 'Manufacturing', value: 5},
+      {key: 'Retail/Wholesale Trade', value: 42},
+      {key: 'Education and Training', value: 10},
+      {key: 'Arts/Entertainment', value: 10},
+      {key: 'Finance/Banking', value: 5},
+      {key: 'Administration', value: 10},
+      {key: 'Government/Military', value: 12}
+    ],
+    incidentsByCategory: [
+      {key: 'Overexertion Involving Outside Source', value: 100},
+      {key: 'Slips, Trips, or Falls', value: 20},
+      {key: 'Other Exertions or Bodily Reactions', value: 10},
+      {key: 'Repetitive Motions Involving Micro-Tasks', value: 50},
+      {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
+      {key: 'On the Job Assault/Violent Act', value: 10},
+    ]
   };
   // When this component mounts, grab the book with the _id of this.props.match.params.id
   // e.g. localhost:3000/books/599dcb67f0f16317844583fc
   componentDidMount() {
-    // API.getBook(this.props.match.params.id)
-    //   .then(res => this.setState({ book: res.data }))
-    //   .catch(err => console.log(err));
+  this.loadIncidentsByIndustry();
+  this.loadIncidentsByCategory();
   }
+
+  loadIncidentsByIndustry = () => {
+    API.getIncidentsByIndustry()
+      .then(res => 
+        this.setState({ incidentsByIndustry: res.data})
+      )
+      .catch(err => console.log(err));
+  };
+
+  loadIncidentsByCategory = () => {
+    API.getSumByCategory()
+      .then(res => 
+        this.setState({ incidentsByCategory: res.data})
+      )
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -49,18 +84,7 @@ class InsuranceHome extends Component {
             <h2>{this.state.insurance.industrygraph}</h2>
             <PieChart
               labels
-              data={[
-                {key: 'Health/Social Care', value: 100},
-                {key: 'Construction', value: 200},
-                {key: 'Agriculture/Food & Restaurant', value: 10},
-                {key: 'Manufacturing', value: 5},
-                {key: 'Retail/Wholesale Trade', value: 42},
-                {key: 'Education and Training', value: 10},
-                {key: 'Arts/Entertainment', value: 10},
-                {key: 'Finance/Banking', value: 5},
-                {key: 'Administration', value: 10},
-                {key: 'Government/Military', value: 12}
-              ]}
+              data={this.state.incidentsByIndustry}
             /> 
             {/* <article>
               <h1>Description</h1>
@@ -73,14 +97,7 @@ class InsuranceHome extends Component {
             <h2>{this.state.insurance.categorygraph}</h2>
             <PieChart
               labels
-              data={[
-                {key: 'Overexertion Involving Outside Source', value: 100},
-                {key: 'Slips, Trips, or Falls', value: 20},
-                {key: 'Other Exertions or Bodily Reactions', value: 10},
-                {key: 'Repetitive Motions Involving Micro-Tasks', value: 50},
-                {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
-                {key: 'On the Job Assault/Violent Act', value: 10},
-              ]}
+              data={this.state.incidentsByCategory}
             />            
           </Col>
         </Row>

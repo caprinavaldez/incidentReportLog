@@ -10,33 +10,29 @@ import './Login.css';
 
 class Login extends Component {
   state = {
+    user: [],
     email: "",
     password: "",
     coType: ""
   };
 
   componentDidMount() {
-    // this.loadBooks();
+    // this.loadUser();
   }
+
+  // loadUser = () => {
+  //   API.getUser()
+  //     .then(res =>
+  //       this.setState({ user: res.data })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value
     });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    // if (this.state.title && this.state.author) {
-    //   API.saveBook({
-    //     title: this.state.title,
-    //     author: this.state.author,
-    //     synopsis: this.state.synopsis
-    //   })
-    //     .then(res => this.loadBooks())
-    //     .catch(err => console.log(err));
-    // }
   };
 
   render() {
