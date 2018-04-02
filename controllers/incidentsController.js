@@ -106,13 +106,45 @@ module.exports = {
         },
         {
           $addFields: {
-            key: "$_id",
-            value: "$average"
+            x: "$_id",
+            y: "$average"
           }
         }
        ])
       .then(dbModel => {
-        res.json(dbModel);
+        res.json(dbModel)
+      })
+      .catch(err => res.status(422).json(err));
+  },
+  averageCostByIndustry: function(req, res) {
+    db.Incident
+      .aggregate([
+        {
+          $lookup: {
+            "from": "users",
+            "localField": "user",
+            "foreignField": "_id",
+            "as": "userinfo"
+          }
+        },
+        {
+          $unwind: "$userinfo"
+        },
+        {
+          $group: {
+            _id: "$userinfo.bizCategory",
+            average: { $avg: "$cost" }
+          }
+        },
+        {
+          $addFields: {
+            x: "$_id",
+            y: "$average"
+          }
+        }
+       ])
+      .then(dbModel => {
+        res.json(dbModel)
       })
       .catch(err => res.status(422).json(err));
   },

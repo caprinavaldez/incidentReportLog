@@ -58,37 +58,37 @@ class InsuranceHome extends Component {
       }
     ],
     byIndustryCost: [
-      // {
-      //   x: 'Administration',
-      //   y: 1000
-      // },{
-      //   x: 'Construction',
-      //   y: 2600
-      // },{
-      //   x: 'Agriculture/Food & Restaurant',
-      //   y: 1060
-      // },{
-      //   x: 'Manufacturing',
-      //   y: 5000
-      // },{
-      //   x: 'Retail/Wholesale Trade',
-      //   y: 999
-      // },{
-      //   x: 'Education and Training',
-      //   y: 1205
-      // },{
-      //   x: 'Arts/Entertainment',
-      //   y: 650
-      // },{
-      //   x: 'Finance/Banking',
-      //   y: 500
-      // },{
-      //   x: 'Administration',
-      //   y: 700
-      // },{
-      //   x: 'Government/Military',
-      //   y: 1000
-      // }
+      {
+        x: 'Administration',
+        y: 1000
+      },{
+        x: 'Construction',
+        y: 2600
+      },{
+        x: 'Agriculture/Food & Restaurant',
+        y: 1060
+      },{
+        x: 'Manufacturing',
+        y: 5000
+      },{
+        x: 'Retail/Wholesale Trade',
+        y: 999
+      },{
+        x: 'Education and Training',
+        y: 1205
+      },{
+        x: 'Arts/Entertainment',
+        y: 650
+      },{
+        x: 'Finance/Banking',
+        y: 500
+      },{
+        x: 'Administration',
+        y: 700
+      },{
+        x: 'Government/Military',
+        y: 1000
+      }
     ]
   };
 

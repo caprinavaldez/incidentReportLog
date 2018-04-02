@@ -18,6 +18,10 @@ router
 router
   .route("/avg-costs-by-category")
   .get(incidentController.averageCostByCategory);
+  
+router
+  .route("/avg-costs-by-industry")
+  .get(incidentController.averageCostByIndustry);
 
 router
   .route("/counts-by-month")

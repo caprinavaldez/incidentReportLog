@@ -51,10 +51,10 @@ export default {
   },
     //Get sum of category cost
   byCategoryCost: function() {
-    return axios.get("/api/users/counts-by-categorycost");
+    return axios.get("/api/incidents/avg-costs-by-category");
   },
     //Get sum industry cost
   byIndustryCost: function() {   
-    return axios.get("/api/users/counts-by-industrycost");
+    return axios.get("/api/incidents/avg-costs-by-industry");
   },
 };

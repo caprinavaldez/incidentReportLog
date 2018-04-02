@@ -16,15 +16,6 @@ router
   .route("/counts-by-industry")
   .get(usersController.groupByIndustry);
 
-// Matches with "/api/users/counts-by-industrycost"
-// router
-//   .route("/counts-by-industrycost")
-//   .get(usersController.groupByIndustryCost);
-
-// Matches with "/api/users/counts-by-categorycost"
-// router
-//   .route("/counts-by-categorycost")
-//   .get(usersController.groupByCategoryCost);
 
 // Matches with "/api/users/:id"
 router
