@@ -17,16 +17,16 @@ class InsuranceHome extends Component {
       categorycosts: "Graph for Avg Accident Costs by Category"
     },
     incidentsByIndustry: [
-      {key: 'Health/Social Care', value: 100},
-      {key: 'Construction', value: 200},
-      {key: 'Agriculture/Food & Restaurant', value: 10},
-      {key: 'Manufacturing', value: 5},
-      {key: 'Retail/Wholesale Trade', value: 42},
-      {key: 'Education and Training', value: 10},
-      {key: 'Arts/Entertainment', value: 10},
-      {key: 'Finance/Banking', value: 5},
-      {key: 'Administration', value: 10},
-      {key: 'Government/Military', value: 12}
+      // {key: 'Health/Social Care', value: 100},
+      // {key: 'Construction', value: 200},
+      // {key: 'Agriculture/Food & Restaurant', value: 10},
+      // {key: 'Manufacturing', value: 5},
+      // {key: 'Retail/Wholesale Trade', value: 42},
+      // {key: 'Education and Training', value: 10},
+      // {key: 'Arts/Entertainment', value: 10},
+      // {key: 'Finance/Banking', value: 5},
+      // {key: 'Administration', value: 10},
+      // {key: 'Government/Military', value: 12}
     ],
     incidentsByCategory: [
       {key: 'Overexertion Involving Outside Source', value: 100},
@@ -35,19 +35,76 @@ class InsuranceHome extends Component {
       {key: 'Repetitive Motions Involving Micro-Tasks', value: 50},
       {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
       {key: 'On the Job Assault/Violent Act', value: 10},
+    ],
+    byCategoryCost: [
+      {
+        x: 'Overexertion Involving Outside Source',
+        y: 100
+      },{
+        x: 'Slips, Trips, or Falls',
+        y: 260
+      },{
+        x: 'Other Exertions or Bodily Reactions',
+        y: 1060
+      },{
+        x: 'Repetitive Motions Involving Micro-Tasks',
+        y: 500
+      },{
+        x: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)',
+        y: 999
+      },{
+        x: 'On the Job Assault/Violent Act',
+        y: 120
+      }
+    ],
+    byIndustryCost: [
+      {
+        x: 'Administration',
+        y: 1000
+      },{
+        x: 'Construction',
+        y: 2600
+      },{
+        x: 'Agriculture/Food & Restaurant',
+        y: 1060
+      },{
+        x: 'Manufacturing',
+        y: 5000
+      },{
+        x: 'Retail/Wholesale Trade',
+        y: 999
+      },{
+        x: 'Education and Training',
+        y: 1205
+      },{
+        x: 'Arts/Entertainment',
+        y: 650
+      },{
+        x: 'Finance/Banking',
+        y: 500
+      },{
+        x: 'Administration',
+        y: 700
+      },{
+        x: 'Government/Military',
+        y: 1000
+      }
     ]
   };
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
+
   componentDidMount() {
-  this.loadIncidentsByIndustry();
-  this.loadIncidentsByCategory();
+    this.loadIncidentsByIndustry();
+    this.loadIncidentsByCategory();
+    this.loadByCategoryCost();
+    this.loadByIndustryCost();
   }
 
   loadIncidentsByIndustry = () => {
     API.getIncidentsByIndustry()
-      .then(res => 
-        this.setState({ incidentsByIndustry: res.data})
+      .then(res => {
+          console.log("Incidents by industry", res.data);
+          this.setState({ incidentsByIndustry: res.data});
+        } 
       )
       .catch(err => console.log(err));
   };
@@ -56,6 +113,24 @@ class InsuranceHome extends Component {
     API.getSumByCategory()
       .then(res => 
         this.setState({ incidentsByCategory: res.data})
+      )
+      .catch(err => console.log(err));
+  };
+
+  loadByCategoryCost = () => {
+    API.byCategoryCost()
+      .then(res => 
+        this.setState({ byCategoryCost: res.data})
+      )
+      .catch(err => console.log(err));
+  };
+
+  loadByIndustryCost = () => {
+    API.byIndustryCost()
+      .then(res => {
+          console.log(res.data);
+          this.setState({ byIndustryCost: res.data});
+        }
       )
       .catch(err => console.log(err));
   };
@@ -111,48 +186,7 @@ class InsuranceHome extends Component {
           colorBars
           height={250}
           width={650}
-          data={[
-            {
-              x: 'Administration',
-              y: 1000
-            },
-            {
-              x: 'Construction',
-              y: 2600
-            },
-            {
-              x: 'Agriculture/Food & Restaurant',
-              y: 1060
-            },
-            {
-              x: 'Manufacturing',
-              y: 5000
-            },
-            {
-              x: 'Retail/Wholesale Trade',
-              y: 999
-            },
-            {
-              x: 'Education and Training',
-              y: 1205
-            },
-            {
-              x: 'Arts/Entertainment',
-              y: 650
-            },
-            {
-              x: 'Finance/Banking',
-              y: 500
-            },
-            {
-              x: 'Administration',
-              y: 700
-            },
-            {
-              x: 'Government/Military',
-              y: 1000
-            }
-          ]}
+          data={this.state.byIndustryCost}
         />
           </Col>   
           <Col size="md-6">
@@ -164,32 +198,7 @@ class InsuranceHome extends Component {
           colorBars
           height={250}
           width={650}
-          data={[
-            {
-              x: 'Overexertion Involving Outside Source',
-              y: 100
-            },
-            {
-              x: 'Slips, Trips, or Falls',
-              y: 260
-            },
-            {
-              x: 'Other Exertions or Bodily Reactions',
-              y: 1060
-            },
-            {
-              x: 'Repetitive Motions Involving Micro-Tasks',
-              y: 500
-            },
-            {
-              x: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)',
-              y: 999
-            },
-            {
-              x: 'On the Job Assault/Violent Act',
-              y: 120
-            }
-          ]}
+          data={this.state.byCategoryCost}
         />          
           </Col>   
         </Row>

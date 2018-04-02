@@ -9,7 +9,19 @@ router
 
 router
   .route("/counts-by-category")
-  .get(incidentController.groupByCategory);
+  .get(incidentController.countByCategory);
+
+  router
+  .route("/counts-by-industry")
+  .get(incidentController.countByIndustry);
+
+router
+  .route("/avg-costs-by-category")
+  .get(incidentController.averageCostByCategory);
+  
+router
+  .route("/avg-costs-by-industry")
+  .get(incidentController.averageCostByIndustry);
 
 router
   .route("/counts-by-month")

@@ -19,7 +19,12 @@ module.exports = {
       .aggregate([
         {
           $group: {
-            _id: "$date",
+            _id: {
+              $dateToString: {
+                format: "%m-%Y",
+                date: "$date"
+              }
+            },
             count: { $sum: 1 }
           }
         }
@@ -37,7 +42,7 @@ module.exports = {
       })
       .catch(err => res.status(422).json(err));
   },
-  groupByCategory: function(req, res) {
+  countByCategory: function(req, res) {
     db.Incident
       .aggregate([
         {
@@ -45,18 +50,101 @@ module.exports = {
             _id: "$category",
             count: { $sum: 1}
           }
+        },
+        {
+          $addFields: {
+            key: "$_id",
+            value: "$count"
+          }
         }
        ])
       .then(dbModel => {
-        console.log(dbModel);
-        let incidents = [];
-        dbModel.forEach((i) => {
-          incidents.push({
-            key: i._id,
-            value: i.count
-          });
-        })
-        res.json(incidents);
+        res.json(dbModel);
+      })
+      .catch(err => res.status(422).json(err));
+  },
+  countByIndustry: function(req, res) {
+    db.Incident
+      .aggregate([
+        {
+          $lookup: {
+            "from": "users",
+            "localField": "user",
+            "foreignField": "_id",
+            "as": "userinfo"
+          }
+        },
+        {
+          $unwind: "$userinfo"
+        },
+        {
+          $group: {
+            _id: "$userinfo.bizCategory",
+            count: { $sum: 1}
+          }
+        },
+        {
+          $addFields: {
+            key: "$_id",
+            value: "$count"
+          }
+        }
+       ])
+      .then(dbModel => {
+        res.json(dbModel);
+      })
+      .catch(err => res.status(422).json(err));
+  },
+  averageCostByCategory: function(req, res) {
+    db.Incident
+      .aggregate([
+        {
+          $group: {
+            _id: "$category",
+            average: { $avg: "$cost" }
+          }
+        },
+        {
+          $addFields: {
+            x: "$_id",
+            y: "$average"
+          }
+        }
+       ])
+      .then(dbModel => {
+        res.json(dbModel)
+      })
+      .catch(err => res.status(422).json(err));
+  },
+  averageCostByIndustry: function(req, res) {
+    db.Incident
+      .aggregate([
+        {
+          $lookup: {
+            "from": "users",
+            "localField": "user",
+            "foreignField": "_id",
+            "as": "userinfo"
+          }
+        },
+        {
+          $unwind: "$userinfo"
+        },
+        {
+          $group: {
+            _id: "$userinfo.bizCategory",
+            average: { $avg: "$cost" }
+          }
+        },
+        {
+          $addFields: {
+            x: "$_id",
+            y: "$average"
+          }
+        }
+       ])
+      .then(dbModel => {
+        res.json(dbModel)
       })
       .catch(err => res.status(422).json(err));
   },
