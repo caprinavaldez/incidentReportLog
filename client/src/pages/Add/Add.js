@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
-import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import "./Add.css";
 //import { Link, Redirect } from 'react-router';
@@ -92,7 +89,7 @@ class AddReport extends Component {
                   <option value="Trips/Falls">Trips/Falls</option>
                   <option value="Other Exertions">Other Exertions</option>
                   <option value="Repetitive Motions">Repetitive Motions</option>
-                  <option value="Equipment/Object">Caused By Equipment(s) or Object(s)</option>
+                  <option value="Equipment/Object">Equipment/Object Causing</option>
                   <option value="Assault">Assault/Violent Act</option>
                 </select>
               </label>

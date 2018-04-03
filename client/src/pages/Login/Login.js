@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../../components/DeleteBtn";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Footer from "../../components/Footer";
-// import { List, ListItem } from "../../components/List";
 import { Input, FormBtn } from "../../components/Form";
 import './Login.css';
 

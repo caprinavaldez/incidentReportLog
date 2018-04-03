@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import {BarChart, PieChart} from 'react-easy-chart';
 import "./BizHome.css";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
-import Report from "../Add/Add.js";
 
 // const cellEditProp = {
 //   mode: 'click'
@@ -16,18 +14,18 @@ class BizHome extends Component {
   state = {
     biz: {
       name: "Business Name",
-      monthgraph: "Graph of monthly accidents",
-      categorygraph: "Graph of accidents by category",
-      accidentlist: "Table for Accident Report List"
+      monthgraph: "Monthly Accidents",
+      categorygraph: "Accidents by Category",
+      accidentlist: "Accident Report List"
     },
     incidents: [],
     incidentsByCategory: [
-      {key: 'Overexertion Involving Outside Source', value: 100},
-      {key: 'Slips, Trips, or Falls', value: 200},
-      {key: 'Other Exertions or Bodily Reactions', value: 10},
-      {key: 'Repetitive Motions Involving Micro-Tasks', value: 5},
-      {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
-      {key: 'On the Job Assault/Violent Act', value: 10},
+      {key: 'Overexertion', value: 100},
+      {key: 'Trips/Falls', value: 200},
+      {key: 'Other Exertions', value: 10},
+      {key: 'Repetitive Motions', value: 5},
+      {key: 'Equipment/Object Causing', value: 42},
+      {key: 'Assault/Violent Act', value: 10},
     ],
     incidentBarChart: [
       {
@@ -101,41 +99,7 @@ class BizHome extends Component {
       )
       .catch(err => console.log(err));
   };
- 
 
-  // mouseOverHandler(d, e) {
-  //   this.setState({
-  //     showToolTip: true,
-  //     top: e.y,
-  //     left: e.x,
-  //     value: d.value,
-  //     key: d.data.key});
-  // }
-
-  // mouseMoveHandler(e) {
-  //   if (this.state.showToolTip) {
-  //     this.setState({top: e.y, left: e.x});
-  //   }
-  // }
-
-  // mouseOutHandler() {
-  //   this.setState({showToolTip: false});
-  // }
-
-  // createTooltip() {
-  //   if (this.state.showToolTip) {
-  //     return (
-  //       <ToolTip
-  //         top={this.state.top}
-  //         left={this.state.left}
-  //       >
-  //         The value of {this.state.key} is {this.state.value}
-  //       </ToolTip>
-  //     );
-  //   }
-  //   return false;
-  // }
-  
   render() {
     return (
       <Container fluid>
@@ -172,11 +136,6 @@ class BizHome extends Component {
             <PieChart
               labels
               data={this.state.incidentsByCategory}
-              // mouseOverHandler={this.mouseOverHandler}
-              // mouseOutHandler={this.mouseOutHandler .bind(this)}
-              // mouseMoveHandler={this.mouseMoveHandler.bind(this)}
-              // padding={10}
-              // styles={this.styles}
             />            
           </Col>
         </Row>    

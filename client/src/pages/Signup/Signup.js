@@ -1,11 +1,8 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Footer from "../../components/Footer";
-// import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
+import { Input, FormBtn } from "../../components/Form";
 import './Signup.css';
 
 class Signup extends Component {
@@ -106,6 +103,7 @@ class Signup extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
+                type="password"
                 placeholder="Password (Required)"
               />
               <FormBtn

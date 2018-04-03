@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import {BarChart, PieChart} from 'react-easy-chart';
 import './InsuranceHome.css';
@@ -11,10 +10,10 @@ class InsuranceHome extends Component {
     insurance: {
       name: "Insurance Name",
       year: "2018",
-      industrygraph: "Graph for Amt of Accidents by Industry",
-      categorygraph: "Graph for Amt of Accidents by Category",
-      industrycosts: "Graph for Avg Accident Costs by Industry",
-      categorycosts: "Graph for Avg Accident Costs by Category"
+      industrygraph: "Accidents by Industry",
+      categorygraph: "Accidents by Category",
+      industrycosts: "Average Accident Costs by Industry",
+      categorycosts: "Average Accident Costs by Category"
     },
     incidentsByIndustry: [
       // {key: 'Health/Social Care', value: 100},
@@ -29,31 +28,31 @@ class InsuranceHome extends Component {
       // {key: 'Government/Military', value: 12}
     ],
     incidentsByCategory: [
-      {key: 'Overexertion Involving Outside Source', value: 100},
-      {key: 'Slips, Trips, or Falls', value: 20},
-      {key: 'Other Exertions or Bodily Reactions', value: 10},
-      {key: 'Repetitive Motions Involving Micro-Tasks', value: 50},
-      {key: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)', value: 42},
-      {key: 'On the Job Assault/Violent Act', value: 10},
+      {key: 'Overexertion', value: 100},
+      {key: 'Trips/Falls', value: 20},
+      {key: 'Other Exertions', value: 10},
+      {key: 'Repetitive Motions', value: 50},
+      {key: 'Equipment/Object Causing', value: 42},
+      {key: 'Assault', value: 10},
     ],
     byCategoryCost: [
       {
-        x: 'Overexertion Involving Outside Source',
+        x: 'Overexertion',
         y: 100
       },{
-        x: 'Slips, Trips, or Falls',
+        x: 'Trips/Falls',
         y: 260
       },{
-        x: 'Other Exertions or Bodily Reactions',
+        x: 'Other Exertions',
         y: 1060
       },{
-        x: 'Repetitive Motions Involving Micro-Tasks',
+        x: 'Repetitive Motions',
         y: 500
       },{
-        x: 'Caught In/Compressed or Struck By/Against Equipment(s) or Object(s)',
+        x: 'Equipment/Object Causing',
         y: 999
       },{
-        x: 'On the Job Assault/Violent Act',
+        x: 'Assault',
         y: 120
       }
     ],
