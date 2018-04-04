@@ -45,11 +45,8 @@ class Homepage extends Component {
             </article>
           </Col>
         </Row>
-        <Row>
+        <Row> 
           <Col size="md-10 md-offset-1">
-          <div className="border">
-            <img src="/cautionTape.png" />
-          </div>
           <div className="slideshowContainer">
             <Carousel>
               <img alt="Annual Average Statistics on Work Injurk Accidents" src="/slide1.png" />
@@ -59,10 +56,10 @@ class Homepage extends Component {
               <img alt="Dangerous Industries" src="/slide5.png" />
             </Carousel>
           </div>
-            <div className="border">
-              <img src="/cautionTape.png" />
-            </div>
           </Col>
+          <div className="border">
+            <img src="/cautionTape.png" />
+          </div>
         </Row>
         <Row>
           <h2>{this.state.benefits}</h2>
