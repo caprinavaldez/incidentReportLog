@@ -1,13 +1,22 @@
-.border {
-    margin-top: 0;
-}
-.logo {
-    width: 40%;
-    length: 40%;
-    margin-left: auto;
-    margin-right: auto;
-}
 img {
     width: 100%;
+    margin: auto;
 }
-
+.border {
+    width: 100%;
+    height: 500px;
+    margin: auto;
+}
+.logo {
+    width: 50%;
+    length: 50%;
+    margin: auto;
+    padding-bottom: 50px;
+}
+.slideshowContainer {
+    position: absolute;
+    width: 55%;
+    left: 50%;
+    margin-left: -29%;
+    border: 5px dashed black;
+}

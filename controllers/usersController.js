@@ -66,7 +66,7 @@ module.exports = {
     },
     create: function(req, res) {
         // if (req.user && req.user.id) {
-            console.log(req);
+            console.log(req.body);
             db.User
             .create(req.body)
             .then(dbModel => res.json(dbModel))
