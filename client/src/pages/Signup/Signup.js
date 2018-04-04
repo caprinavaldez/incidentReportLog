@@ -7,7 +7,6 @@ import './Signup.css';
 
 class Signup extends Component {
   state = {
-    user: [],
     bizName: "",
     coType: "",
     bizCategory: "",
@@ -15,14 +14,10 @@ class Signup extends Component {
     password: ""
   };
 
-  componentDidMount() {
-    this.saveNewUser();
-  }
-
   saveNewUser = () => {
     API.saveNewUser()
       .then(res =>
-        this.setState({ user: res.data, bizName: "", coType: "", bizCategory: "", email: "", password: "" })
+        this.setState({ bizName: "", coType: "", bizCategory: "", email: "", password: "" })
       )
       .catch(err => console.log(err));
   };
@@ -36,9 +31,8 @@ class Signup extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.user && this.state.bizName) {
+    if (this.state.bizName) {
       API.saveNewUser({
-        user: this.state.user,
         bizName: this.state.bizName,
         coType: this.state.coType,
         bizCategory: this.state.bizCategory,
