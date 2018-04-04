@@ -38,7 +38,7 @@ class AddReport extends Component {
         notes: this.state.notes
       })
         // .then(res => console.log(res.data))
-        // .then(res => this.loadIncidents())
+        //.then(res=> this.saveIncident())
         .then(res => this.props.history.push("/business"))
         .catch(err => console.log(err));
     }

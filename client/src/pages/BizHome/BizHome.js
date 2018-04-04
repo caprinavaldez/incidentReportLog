@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-import {BarChart, PieChart} from 'react-easy-chart';
+import {BarChart, PieChart, Legend} from 'react-easy-chart';
 import "./BizHome.css";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
@@ -129,14 +129,15 @@ class BizHome extends Component {
               height={250}
               width={650}
               data={this.state.incidentBarChart}
-            />            
+            />
           </Col>
           <Col size="md-6">
             <h2>{this.state.biz.categorygraph}</h2>
             <PieChart
-              labels
+              innerHoleSize={200}
               data={this.state.incidentsByCategory}
-            />            
+            />
+            <Legend data={this.state.incidentsByCategory} dataId={'key'} />         
           </Col>
         </Row>    
         <Row>
