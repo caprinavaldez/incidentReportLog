@@ -41,6 +41,10 @@ export default {
   saveNewUser: function(userData) {
     return axios.post("/api/users", userData);
   },
+  authenticateUser: function (userData) {
+    console.log('HITTT!');
+    return axios.post("/auth/login", userData);
+  },
   // Get incidents by industry
   getIncidentsByIndustry: function() {
     return axios.get("/api/incidents/counts-by-industry");
