@@ -44,6 +44,9 @@ module.exports = {
   },
   countByCategory: function(req, res) {
     db.Incident
+        .find({
+          user: '' // to filter using user id
+        })
       .aggregate([
         {
           $group: {
