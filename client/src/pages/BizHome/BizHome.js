@@ -104,8 +104,8 @@ class BizHome extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-2">
-            <Link to="/">← Back to Home</Link>
+          <Col size="md-12">
+            <Link to="/" style={{float: "right"}}>Sign-out</Link>
           </Col>
         </Row>
         <Row>
@@ -113,7 +113,7 @@ class BizHome extends Component {
               <h1>
                 {this.state.biz.name}
               </h1>
-              <a href="/add" className="btn btn-primary" style={{float: "right"}}>
+              <a href="/add" className="btn btn-warning" style={{float: "right"}}>
                 Add New Report
               </a>   
           </Col>
@@ -152,7 +152,7 @@ class BizHome extends Component {
             <TableHeaderColumn dataField='notes' dataSort={ true }>Notes</TableHeaderColumn>
         </BootstrapTable>
       </div>
-<link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css"></link>
+      <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css"></link>
       </Container>
 
     );

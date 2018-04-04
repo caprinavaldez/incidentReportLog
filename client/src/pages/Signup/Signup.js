@@ -79,8 +79,8 @@ class Signup extends Component {
               </label> 
               <br></br>    
               <label>          
-                <select name="bizCategory" value={this.state.bizCategory} onChange={this.handleInputChange}>
-                  <option>Select Business Category:</option>
+                <select className="bizCat" name="bizCategory" value={this.state.bizCategory} onChange={this.handleInputChange}>
+                  <option>If Non-Insurance, Select Business Category:</option>
                   <option value="construction">Construction</option>
                   <option value="health-socialCare">Health/Social Care</option>
                   <option value="education">Education</option>
