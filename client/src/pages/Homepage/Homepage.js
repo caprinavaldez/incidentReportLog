@@ -8,9 +8,9 @@ class Homepage extends Component {
     appName: "Accident to Action",
     description: "We do things simple. Accident to Action has been in the business to assist industries by providing clean statistical data to insurance companies and businesses. We save time when reporting accidents, viewing the data, giving ideas and suggestions, and allowing for thousands to millions of dollars to be saved by companies.",    
     benefits: "The Perks",
-    benefitsColOne: "Lore ipsum dolor sit amet, ne wisi partem mentitum qui. Sea te nisl affert repudiare, nibh iudico sea ad. Augue molestiae te pri, an mea probo scripta. An vim nusquam epicurei liberavisse. Quot primis accusam eos ne, rebum scaevola complectitur has no. Sed ei tacimates iudicabit erroribus, sit aeterno accumsan tractatos in, essent philosophia mei in.",
-    benefitsColTwo: "Id mel postea integre deleniti, omnis commune apeirian ut sea. Laudem mediocritatem ex pro, cum cu altera oporteat singulis, sea commodo constituto delicatissimi ei. Cu qui laudem delectus. Tantas recusabo per ea, prima omnium scribentur eum no. Eu vis habeo harum labores, sumo ferri sonet nec at.",
-    benefitsColThree: "Eam iusto accusamus ei, et ius cibo graeci verear, ut mei pertinax sensibus ullamcorper. Mei ei equidem epicurei, duo ceteros pertinacia delicatissimi eu, iriure suscipit oportere eum in. Cu per agam habeo blandit, usu eligendi dignissim ex. Tation maluisset dignissim eam cu, alia scaevola ne pri, ei meis noster usu."
+    benefitsColOne: "This will help save you time! No more manually filling out those complicated reporting forms. Just complete our simple online form and all your information will be securely stored into our database. There’s no need to have filing cabinets or storage space because we will electronically store them for you!",
+    benefitsColTwo: "Want to see all your data for the year? For the month? Maybe by accident category? We have interactive graphs that will let you visualize all your data. This can help your company improve in every way possible, whether building maintenances are in order or possibly just a notorious worker!",
+    benefitsColThree: "Not only does Accident to Action save you time and space, it also saves you on costs! On top of being environmentally friendly using our online application, for all your data stored you can catch any problems before it arises and set your plans to fix them before more accidents happen."
   };
   
   // When this component mounts, grab the book with the _id of this.props.match.params.id
@@ -60,6 +60,19 @@ class Homepage extends Component {
         <Row>
           <h2>{this.state.benefits}</h2>
         </Row>
+        <div id="icons">
+        <Row>
+          <Col size="md-4">
+            <span className="glyphicon glyphicon-time" aria-hidden="true"></span>
+          </Col>
+          <Col size="md-4">
+            <span className="glyphicon glyphicon-stats" aria-hidden="true"></span>
+          </Col>
+          <Col size="md-4">
+            <span className="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+          </Col>
+        </Row>
+        </div>
         <Row>
           <Col size="md-4">
             <p>{this.state.benefitsColOne}</p>

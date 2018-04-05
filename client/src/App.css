@@ -14,13 +14,15 @@ select {
     padding: 10px
 }
 
-form, p {
+form, p, #icons  {
     font-family: 'Roboto', sans-serif;
+    text-align: center
 }
 
 h2 {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+    padding-bottom: 10px
 }
 
 footer {
@@ -33,4 +35,13 @@ footer {
 
 .bizCat {
     float: left
+}
+
+.glyphicon {
+    font-size: 2em;
+    padding-bottom: 10px
+}
+
+p {
+    font-size: 1.3em
 }
