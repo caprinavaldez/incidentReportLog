@@ -119,6 +119,7 @@ class BizHome extends Component {
           </Col>
         </Row>
         <Row>
+          <div className="graphs">
           <Col size="md-6">
             <h2>{this.state.biz.monthgraph}</h2>
             <BarChart
@@ -139,6 +140,7 @@ class BizHome extends Component {
             />
             <Legend data={this.state.incidentsByCategory} dataId={'key'} />         
           </Col>
+          </div>
         </Row>    
         <Row>
           <h2>{this.state.biz.accidentlist}</h2>
