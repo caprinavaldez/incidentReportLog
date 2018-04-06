@@ -30,8 +30,9 @@ class Login extends Component {
         this.setState({ errorMessage: null });
         Auth.authenticateUser(res.data);
 
+        // console.log(res.data);
         // hard redirect to / to reload all the state and nav
-        window.location.href = "/";
+        window.location.href = "/" + (res.data.user.coType === 'nonInsurance' ? 'business' : 'insurance');
       })
       .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };

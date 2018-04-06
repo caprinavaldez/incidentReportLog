@@ -10,6 +10,7 @@ class Auth {
         localStorage.setItem('user_id', authData.user.id);
         localStorage.setItem('email', authData.user.email);
         localStorage.setItem('bizName', authData.user.bizName);
+        localStorage.setItem('coType', authData.user.coType);
       }
 
     /**
@@ -49,6 +50,7 @@ class Auth {
       return {
         id: localStorage.getItem('user_id'),
         bizName: localStorage.getItem('bizName'),
+        coType: localStorage.getItem('coType'),
         email: localStorage.getItem('email')
       }
     } else {

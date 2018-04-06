@@ -20,6 +20,11 @@ module.exports = {
     db.Incident
       .aggregate([
         {
+          $match: {
+            user: ObjectId(req.params.user_id)
+          }
+        },
+        {
           $group: {
             _id: {
               $dateToString: {
@@ -45,7 +50,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   countByCategory: function(req, res) {
-    console.log(req.params.user_id);
     db.Incident
       .aggregate([
         {
@@ -53,17 +57,6 @@ module.exports = {
             user: ObjectId(req.params.user_id)
           }
         },
-        // {
-        //   $project: {
-        //     items: {
-        //         $filter: {
-        //           input: "$items",
-        //           as: "item",
-        //           cond: { $eq: [ "$$item.user", req.params.user_id ] }
-        //         }
-        //     }
-        //   }
-        // },
         {
           $group: {
             _id: "$category",
