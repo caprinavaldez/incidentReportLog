@@ -1,4 +1,5 @@
 import axios from "axios";
+import Auth from "./Auth";
 
 export default {
   // Gets all incidents
@@ -19,7 +20,8 @@ export default {
   },
   // Groups incidents by category
   getIncidentByCategory: function() {
-    return axios.get("/api/incidents/counts-by-category");
+    // console.log(Auth.getUser());
+    return axios.get("/api/incidents/counts-by-category/" + Auth.getUser().id);
   },
   // Groups incidents by Month
   getIncidentByMonth: function() {
@@ -51,7 +53,7 @@ export default {
   },
   //Get sum of incidents by category
   getSumByCategory: function() {
-    return axios.get("/api/incidents/counts-by-category");
+    return axios.get("/api/incidents/counts-by-category/");
   },
     //Get sum of category cost
   byCategoryCost: function() {

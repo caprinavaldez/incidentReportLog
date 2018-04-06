@@ -4,14 +4,14 @@ const incidentController = require("../../controllers/incidentsController");
 // Matches with "/api/incidents"
 router
   .route("/")
-  .get(incidentController.findAll)
-  .post(incidentController.create);
+  .post(incidentController.create)
+  .get(incidentController.findAll);
 
 router
-  .route("/counts-by-category")
+  .route("/counts-by-category/:user_id")
   .get(incidentController.countByCategory);
 
-  router
+router
   .route("/counts-by-industry")
   .get(incidentController.countByIndustry);
 
