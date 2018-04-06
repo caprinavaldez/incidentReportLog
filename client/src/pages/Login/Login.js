@@ -88,24 +88,23 @@ class Login extends Component {
                 type="password"
                 placeholder="Password (Required)"
               />
-              {/* <label>
-                Select Company Type:
-                <select name="coType" value={this.state.coType} onChange={this.handleInputChange}>
-                  <option value="insurance">Insurance</option>
-                  <option value="nonInsurance">Non-Insurance</option>
-                </select>
-              </label> */}
               <FormBtn
                 disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleLogin}
               >
                 Log In
               </FormBtn>
-              <p style={{textAlign: "center"}}>Not yet a Member? <a href="signup">Sign-up here</a></p>
+              <p style={{textAlign: "center", fontSize: "1em"}}>Not yet a Member? <a href="signup">Sign-up here</a></p>
             </form>
           </Col>
         </Row>
         </div>
+        <br/> 
+        <br/>
+        <br/> 
+        <br/>
+        <br/> 
+        <br/>        
       </Container>
     );
   }

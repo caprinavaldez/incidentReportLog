@@ -83,7 +83,7 @@ class AddReport extends Component {
               </Col>
               <Col size="md-6">
               <label>
-                <select name="category" value={this.state.category} onChange={this.handleInputChange}>
+                <select className="dropDown2" name="category" value={this.state.category} onChange={this.handleInputChange}>
                   <option>Select Accident Category: </option> 
                   <option value="Overexertion">Overexertion</option>
                   <option value="Trips/Falls">Trips/Falls</option>

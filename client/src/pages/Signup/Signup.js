@@ -65,7 +65,7 @@ class Signup extends Component {
                 placeholder="Company Name (Required)"
               />
               <label>
-                <select name="coType" value={this.state.coType} onChange={this.handleInputChange}>
+                <select className="coType" name="coType" value={this.state.coType} onChange={this.handleInputChange}>
                   <option>Select Company Type:</option>
                   <option value="insurance">Insurance</option>
                   <option value="nonInsurance">Non-Insurance</option>
@@ -74,7 +74,8 @@ class Signup extends Component {
               <br></br>    
               <label>          
                 <select className="bizCat" name="bizCategory" value={this.state.bizCategory} onChange={this.handleInputChange}>
-                  <option>If Non-Insurance, Select Business Category:</option>
+                  <option>Select Business Category:</option>
+                  <option value="insurance">Insurance</option>
                   <option value="construction">Construction</option>
                   <option value="health-socialCare">Health/Social Care</option>
                   <option value="education">Education</option>
@@ -86,7 +87,7 @@ class Signup extends Component {
                   <option value="manufacturing">Manufacturing</option>
                   <option value="government-military">Government/Military</option>
                 </select>
-              </label>                          
+              </label>   
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
@@ -106,7 +107,7 @@ class Signup extends Component {
               >
                 Join us!
               </FormBtn>
-              <p style={{textAlign: "center"}}>Already a Member? <a href="login">Login here</a></p>
+              <p style={{textAlign: "center", fontSize: "1em"}}>Already a Member? <a href="login">Login here</a></p>
             </form>
           </Col>
         </Row>
