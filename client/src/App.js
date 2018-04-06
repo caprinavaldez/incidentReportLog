@@ -27,7 +27,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 const App = () => (
   <Router>
-    <div>
+    <div className="backgroundPic">
       <Nav />
       <Switch>
         <Route exact path="/" component={Homepage} />
