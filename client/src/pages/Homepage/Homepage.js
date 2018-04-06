@@ -45,11 +45,11 @@ class Homepage extends Component {
           <Col size="md-10 md-offset-1">
           <div className="slideshowContainer">
             <Carousel>
-              <img alt="Annual Average Statistics on Work Injurk Accidents" src="/slide1.png" />
-              <img alt="Slips, Trips, and Falls Statistics" src="/slide2.png" />
-              <img alt="Overexertion Statistics" src="/slide3.png" />
-              <img alt="Struck By... Statistics" src="/slide4.png" />
-              <img alt="Dangerous Industries" src="/slide5.png" />
+              <img alt="Annual Average Statistics on Work Injurk Accidents" src="/slide_1.png" />
+              <img alt="Slips, Trips, and Falls Statistics" src="/slide_2.png" />
+              <img alt="Overexertion Statistics" src="/slide_3.png" />
+              <img alt="Struck By... Statistics" src="/slide_4.png" />
+              <img alt="Dangerous Industries" src="/slide_5.png" />
             </Carousel>
           </div>
           </Col>
