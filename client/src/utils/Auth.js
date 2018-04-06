@@ -5,9 +5,12 @@ class Auth {
      *
      * @param {string} token
      */
-    static authenticateUser(token) {
-        localStorage.setItem('token', token);
-    }
+    static authenticateUser(authData) {
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user_id', authData.user.id);
+        localStorage.setItem('email', authData.user.email);
+        localStorage.setItem('bizName', authData.user.bizName);
+      }
 
     /**
      * Check if a user is authenticated - check if a token is saved in Local Storage
@@ -35,6 +38,23 @@ class Auth {
     static getToken() {
         return localStorage.getItem('token');
     }
+
+    /**
+   * Get a user object.
+   *
+   * @returns {user}
+   */
+  static getUser() {
+    if (localStorage.getItem('user_id')) {
+      return {
+        id: localStorage.getItem('user_id'),
+        bizName: localStorage.getItem('bizName'),
+        email: localStorage.getItem('email')
+      }
+    } else {
+      return null;
+    }
+  }
 
 }
 

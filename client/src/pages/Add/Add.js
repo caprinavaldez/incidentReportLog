@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Auth from "../../utils/Auth";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
@@ -15,9 +16,14 @@ class AddReport extends Component {
     category: "",
     cost: "",
     notes: "",
-    // user: 
+    user: ""
   };
 
+  componentDidMount = () => {
+    if (Auth.getUser()) {
+      this.setState({ user: Auth.getUser().id });
+    }
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -28,20 +34,21 @@ class AddReport extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.location && this.state.person) {   //user instead of person
+     
       API.saveIncident({
         date: this.state.date,
         location: this.state.location,
         cost: this.state.cost,
         person: this.state.person,
         category: this.state.category,
-        notes: this.state.notes
+        notes: this.state.notes,
+        user: this.state.user
       })
         // .then(res => console.log(res.data))
-        // .then(res => this.loadIncidents())
+        //.then(res=> this.saveIncident())
         .then(res => this.props.history.push("/business"))
         .catch(err => console.log(err));
-    }
+    
   };
 
   render() {
