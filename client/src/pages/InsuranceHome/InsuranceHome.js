@@ -153,19 +153,13 @@ class InsuranceHome extends Component {
           <h1>{this.state.insurance.year}</h1>
         </Row>
         <Row>
-          {/* <Col size="md-10 md-offset-1"> */}
+          <div className="graphs">
           <Col size="md-6">
             <h2>{this.state.insurance.industrygraph}</h2>
             <PieChart
               labels
               data={this.state.incidentsByIndustry}
             /> 
-            {/* <article>
-              <h1>Description</h1>
-              <p>
-                {this.state.biz.description}
-              </p>
-            </article> */}
           </Col>
           <Col size="md-6">
             <h2>{this.state.insurance.categorygraph}</h2>
@@ -174,8 +168,10 @@ class InsuranceHome extends Component {
               data={this.state.incidentsByCategory}
             />            
           </Col>
+          </div>
         </Row>
         <Row>
+          <div className="graphs">
           <Col size="md-6">
             <h2>{this.state.insurance.industrycosts}</h2>
             <BarChart
@@ -199,7 +195,8 @@ class InsuranceHome extends Component {
           width={650}
           data={this.state.byCategoryCost}
         />          
-          </Col>   
+          </Col>
+          </div>   
         </Row>
       </Container>
     );

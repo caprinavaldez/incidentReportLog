@@ -14,15 +14,14 @@ select {
     padding: 10px
 }
 
-form, p, #icons  {
+form {
     font-family: 'Roboto', sans-serif;
-    text-align: center
 }
 
 h2 {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
-    padding-bottom: 10px
+    padding-bottom: 20px
 }
 
 footer {
@@ -43,5 +42,16 @@ footer {
 }
 
 p {
-    font-size: 1.3em
+    font-size: 1.3em;
+    font-family: 'Roboto', sans-serif;
+    padding-bottom: 30px
+}
+
+#icons {
+    text-align: center;
+    padding-top: 80px
+}
+
+.graphs {
+    text-align: center
 }
