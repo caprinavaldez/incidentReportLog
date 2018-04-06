@@ -9,6 +9,7 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Logout from "./components/Logout";
 import Footer from "./components/Footer";
 import Auth from './utils/Auth';
 // import PrivateRoute from "./components/PrivateRoute";
@@ -36,12 +37,13 @@ const App = () => (
         <Route exact path="/insurance" component={InsuranceHome} />
         <Route exact path="/business" component={BizHome} />        
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />        
+        <Route exact path="/login" component={Login} />  
+        <Route exact path="/logout" component={Logout} />        
         <Route component={NoMatch} />
       </Switch>
       <Footer />
     </div>
-  </Router>
+    </Router>
 );
 
 export default App;
