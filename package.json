@@ -25,6 +25,7 @@
     "express": "^4.15.4",
     "jsonwebtoken": "^8.2.0",
     "mongoose": "^4.11.7",
+    "nuka-carousel": "^4.0.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "react-bootstrap-table": "^4.3.1",

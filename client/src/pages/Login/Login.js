@@ -28,7 +28,7 @@ class Login extends Component {
       .then(res => {
         // clear error message
         this.setState({ errorMessage: null });
-        Auth.authenticateUser(res.data.token);
+        Auth.authenticateUser(res.data);
 
         // hard redirect to / to reload all the state and nav
         window.location.href = "/";

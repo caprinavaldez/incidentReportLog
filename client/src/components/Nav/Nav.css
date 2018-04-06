@@ -6,9 +6,8 @@
     height: 65px;
 }
 h4 {
-    color: black;
-    text-shadow: 0ex;
-    letter-spacing: 1px;
+    color: yellow;
+    letter-spacing: 2px;
+    text-shadow: 3px 1px  blue;
+    font-family: 'Open Sans', sans-serif;
 }
-
-    

@@ -138,8 +138,8 @@ class InsuranceHome extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-2">
-            <Link to="/">← Back to Home</Link>
+          <Col size="md-12">
+            <Link to="/" style={{float: "right"}}>Sign-out</Link>
           </Col>
         </Row>      
         <Row>

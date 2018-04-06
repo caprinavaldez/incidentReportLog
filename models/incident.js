@@ -8,7 +8,7 @@ const incidentSchema = new Schema({
   person: { type: String, required: true },
   category: { type: String, required: true },
   notes: { type: String },
-  user: { type: Schema.Types.ObjectId, ref: 'User'}
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 const Incident = mongoose.model("Incident", incidentSchema);

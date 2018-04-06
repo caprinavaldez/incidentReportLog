@@ -1,4 +1,6 @@
+const mongoose = require("mongoose");
 const db = require("../models");
+const ObjectId = mongoose.Types.ObjectId;
 
 // Defining methods for the incidentController
 module.exports = {
@@ -43,11 +45,25 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   countByCategory: function(req, res) {
+    console.log(req.params.user_id);
     db.Incident
-        .find({
-          user: '' // to filter using user id
-        })
       .aggregate([
+        {
+          $match: {
+            user: ObjectId(req.params.user_id)
+          }
+        },
+        // {
+        //   $project: {
+        //     items: {
+        //         $filter: {
+        //           input: "$items",
+        //           as: "item",
+        //           cond: { $eq: [ "$$item.user", req.params.user_id ] }
+        //         }
+        //     }
+        //   }
+        // },
         {
           $group: {
             _id: "$category",
@@ -152,8 +168,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log(req.body)
     db.Incident
-      .create(req.body)
+      .create( req.body )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -165,7 +182,7 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Incident
-      .findById({ _id: req.params.id })
+      .findById( req.body )
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
