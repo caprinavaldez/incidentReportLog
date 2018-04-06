@@ -34,7 +34,6 @@ class AddReport extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-     
       API.saveIncident({
         date: this.state.date,
         location: this.state.location,

@@ -50,7 +50,8 @@ module.exports = new PassportLocalStrategy({
             const data = {
                 id: user._id,
                 bizName: user.bizName,
-                email: user.email
+                email: user.email,
+                coType: user.coType
             };
 
             return done(null, token, data);

@@ -25,7 +25,8 @@ export default {
   },
   // Groups incidents by Month
   getIncidentByMonth: function() {
-    return axios.get("/api/incidents/counts-by-month");
+    console.log(Auth.getUser());
+    return axios.get("/api/incidents/counts-by-month/" + Auth.getUser().id);
   },
    /////////////////////////////////////////////
 
