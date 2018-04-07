@@ -114,9 +114,11 @@ class BizHome extends Component {
               <h1>
                 {this.state.bizName}
               </h1>
-              <a href="/add" className="btn btn-warning" style={{float: "right"}}>
+              <div className="text-center">
+              <a href="/add" className="btn btn-warning" style={{float: "center"}}>
                 Add New Report
               </a>   
+              </div>
           </Col>
         </Row>
         <Row>

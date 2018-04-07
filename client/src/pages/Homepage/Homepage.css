@@ -15,16 +15,30 @@ img {
     margin-left: -29%;
     border: 5px dashed black;
 }
-h1, p {
+.hp {
     color: white;
     text-align: center;
 }
+#colOne {
+    padding-left: 30px;
+}
+#colThree {
+    padding-right: 35px;
+}
+#description {
+    padding: 0 110px 0 110px;
+}
 .aboutUs {
     background-color: black;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 160px 0 160px 0;
     margin-bottom: 100px;
 }
 .benefits, #icons {
     background-color: black;
+}
+.benefits {
+    padding-bottom: 50px;
+}
+#icons {
+    margin-top: 50px;
 }

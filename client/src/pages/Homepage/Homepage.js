@@ -6,7 +6,7 @@ import Carousel from 'nuka-carousel';
 class Homepage extends Component {
   state = {
     appName: "Accident to Action",
-    description: "We do things simple. Accident to Action has been in the business to assist industries by providing clean statistical data to insurance companies and businesses. We save time when reporting accidents, viewing the data, giving ideas and suggestions, and allowing for thousands to millions of dollars to be saved by companies.",    
+    description: "Accident to Action is here to assist companies by providing clean statistical data. We save time when reporting accidents, viewing the data, and allowing for thousands to millions of dollars to be saved by companies.",    
     benefitsColOne: "This will help save you time! No more manually filling out those complicated reporting forms. Just complete our simple online form and all your information will be securely stored in our database. No need for filing cabinets or storage space because we will electronically store them for you!",
     benefitsColTwo: "Want to see all your data for the year? For the month? Maybe by accident category? We have interactive graphs that will let you visualize all your data. This can help your company improve in every way possible, whether building maintenances are in order or possibly just a notorious worker!",
     benefitsColThree: "Not only does Accident to Action save you time and space, it also saves you on costs! On top of being environmentally friendly using our online application, for all your data stored you can catch any problems before it arises and set your plans to fix them before more accidents happen."
@@ -19,8 +19,8 @@ class Homepage extends Component {
           <Col size="md-12">
           <div className="aboutUs">
             <article>
-              <h1>About Us</h1>
-              <p>
+              <h1 className="hp">We do things simple.</h1>
+              <p id="description" className="hp">
                 {this.state.description}
               </p>
             </article>
@@ -60,13 +60,13 @@ class Homepage extends Component {
         <Row>
       
           <Col size="md-4">
-            <p>{this.state.benefitsColOne}</p>
+            <p id="colOne" className="hp">{this.state.benefitsColOne}</p>
           </Col>
           <Col size="md-4">
-            <p>{this.state.benefitsColTwo}</p>
+            <p className="hp">{this.state.benefitsColTwo}</p>
           </Col>
           <Col size="md-4">
-            <p>{this.state.benefitsColThree}</p>
+            <p id="colThree" className="hp">{this.state.benefitsColThree}</p>
           </Col>
          
         </Row>

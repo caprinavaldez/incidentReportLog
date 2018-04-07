@@ -54,7 +54,7 @@ class AddReport extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-2">
+          <Col size="md-12">
             <Link to="/business">← Back to Business Home</Link>
           </Col>
         </Row>
