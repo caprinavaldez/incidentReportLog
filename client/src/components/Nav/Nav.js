@@ -25,19 +25,19 @@ const Nav = () => (
       </div>
       {Auth.isUserAuthenticated() ? (
       <div className="navbar-header navbar-right">
-        <a href="/logout" className="navbar-brand">
-          <h4>Logout</h4>
-        </a>
-      </div>
-      ) : (
-      <div className="navbar-header navbar-right">
         <a href="/login" className="navbar-brand">
           <h4>Login</h4>
         </a>
         <a href="/signup" className="navbar-brand">
           <h4>Sign-up</h4>
         </a>
-      </div>
+    </div>
+      ) : (
+      <div className="navbar-header navbar-right">
+        <a href="/logout" className="navbar-brand">
+          <h4>Logout</h4>
+        </a>
+    </div>
       )}
     </div>
   </nav>
