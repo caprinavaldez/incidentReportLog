@@ -14,21 +14,15 @@ const Nav = () => (
         </button>
         <a href="/" className="navbar-brand">
           <h4>Home</h4>
-        </a>
-        <a href="/business" className="navbar-brand">
-          <h4>Business</h4>
-        </a>
-        <a href="/insurance" className="navbar-brand">
-          <h4>Insurance</h4>
         </a> 
+        <div className="logo">
+          <img src="/logo.png" />
+        </div>
         </div>
         <div className="navbar-header navbar-right">
         <a href="/login" className="navbar-brand">
           <h4>Login</h4>
         </a>  
-        <a href="/signup" className="navbar-brand">
-          <h4>Sign-up</h4>  
-        </a>
       </div>
     </div>
   </nav>

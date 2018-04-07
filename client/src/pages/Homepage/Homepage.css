@@ -7,12 +7,6 @@ img {
     height: 500px;
     margin: auto;
 }
-.logo {
-    width: 50%;
-    length: 50%;
-    margin: auto;
-    padding-bottom: 50px;
-}
 .slideshowContainer {
     position: absolute;
     padding-top: 10px;
@@ -20,4 +14,18 @@ img {
     left: 50%;
     margin-left: -29%;
     border: 5px dashed black;
+}
+h1, p {
+    color: white;
+    text-align: center;
+ 
+}
+.aboutUs {
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 100px;
+}
+.benefits, #icons {
+    background-color: black;
 }
