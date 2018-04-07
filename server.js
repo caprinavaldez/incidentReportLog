@@ -26,12 +26,31 @@ app.use(routes);
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/irl",
-  {
-    useMongoClient: true
-  }
-);
+var databaseUri = "mongodb://localhost/irl";
+
+if (process.env.MONGODB_URI) {
+  //this executes if this is being executed in your heroku app
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  //this executes if this is being executed on your local machine
+  mongoose.connect(databaseUri);
+}
+
+var db = mongoose.connection;
+
+db.on('error', function(err) {
+  console.log('Mongoose Error: ', err);
+});
+
+db.once('open', function() {
+  console.log("Mongoose Connection successful");
+})
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://localhost/irl",
+//   {
+//     useMongoClient: true
+//   }
+// );
 
 // Start the API server
 app.listen(PORT, function() {
