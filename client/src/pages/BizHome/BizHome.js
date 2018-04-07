@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
 import Auth from "../../utils/Auth";
@@ -111,11 +111,6 @@ class BizHome extends Component {
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <Link to="/" style={{float: "right"}}>Sign-out</Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
               <h1>
                 {this.state.bizName}
               </h1>
@@ -126,6 +121,13 @@ class BizHome extends Component {
         </Row>
         <Row>
           <div className="graphs">
+          <Col size="md-6">
+          <h2>{this.state.biz.categorygraph}</h2>
+            <PieChart
+              innerHoleSize={175}
+              data={this.state.incidentsByCategory}
+            />
+          </Col>
           <Col size="md-6">
             <h2>{this.state.monthgraph}</h2>
             <BarChart
@@ -138,15 +140,15 @@ class BizHome extends Component {
               data={this.state.incidentBarChart}
             />
           </Col>
-          <Col size="md-6">
-            <h2>{this.state.categorygraph}</h2>
-            <PieChart
-              labels
-              data={this.state.incidentsByCategory}
-            />        
-          </Col>
           </div>
         </Row>    
+        <Row>
+          <Col size="md-6">
+            <div id="legend">
+              <Legend data={this.state.incidentsByCategory} dataId={'key'} horizontal />         
+            </div>
+          </Col>
+        </Row>
         <Row>
           <h2>{this.state.accidentlist}</h2>
         </Row>
