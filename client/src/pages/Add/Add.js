@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import Auth from "../../utils/Auth";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import { Input, TextArea, FormBtn } from "../../components/Form";
@@ -15,9 +16,14 @@ class AddReport extends Component {
     category: "",
     cost: "",
     notes: "",
-    // user: 
+    user: ""
   };
 
+  componentDidMount = () => {
+    if (Auth.getUser()) {
+      this.setState({ user: Auth.getUser().id });
+    }
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -28,20 +34,20 @@ class AddReport extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.location && this.state.person) {   //user instead of person
       API.saveIncident({
         date: this.state.date,
         location: this.state.location,
         cost: this.state.cost,
         person: this.state.person,
         category: this.state.category,
-        notes: this.state.notes
+        notes: this.state.notes,
+        user: this.state.user
       })
         // .then(res => console.log(res.data))
-        // .then(res => this.loadIncidents())
+        //.then(res=> this.saveIncident())
         .then(res => this.props.history.push("/business"))
         .catch(err => console.log(err));
-    }
+    
   };
 
   render() {
@@ -59,6 +65,7 @@ class AddReport extends Component {
           </Col>
         </Row>
         <Row>
+        <div className="form-group">          
             <form>
               <Row>
               <Col size="md-6">
@@ -82,9 +89,8 @@ class AddReport extends Component {
               />
               </Col>
               <Col size="md-6">
-              <label>
-                <select name="category" value={this.state.category} onChange={this.handleInputChange}>
-                  <option>Select Accident Category: </option> 
+                <select className="form-control" name="category" value={this.state.category} onChange={this.handleInputChange}>
+                  <option id="label">Select Accident Category: </option> 
                   <option value="Overexertion">Overexertion</option>
                   <option value="Trips/Falls">Trips/Falls</option>
                   <option value="Other Exertions">Other Exertions</option>
@@ -92,7 +98,6 @@ class AddReport extends Component {
                   <option value="Equipment/Object">Equipment/Object Causing</option>
                   <option value="Assault">Assault/Violent Act</option>
                 </select>
-              </label>
               </Col>
               </Row>  
               <Row>
@@ -128,6 +133,7 @@ class AddReport extends Component {
                 Submit
               </FormBtn>
             </form>
+            </div>
           </Row>
         </div>
       </Container>

@@ -28,10 +28,11 @@ class Login extends Component {
       .then(res => {
         // clear error message
         this.setState({ errorMessage: null });
-        Auth.authenticateUser(res.data.token);
+        Auth.authenticateUser(res.data);
 
+        // console.log(res.data);
         // hard redirect to / to reload all the state and nav
-        window.location.href = "/";
+        window.location.href = "/" + (res.data.user.coType === 'nonInsurance' ? 'business' : 'insurance');
       })
       .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };
@@ -62,11 +63,6 @@ class Login extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Col size="md-2">
-            <Link to="/business">← Back to Home</Link>
-          </Col>
-        </Row>
         <div id="loginForm">
         <Row>
           <Col size="md-12">
@@ -88,24 +84,23 @@ class Login extends Component {
                 type="password"
                 placeholder="Password (Required)"
               />
-              {/* <label>
-                Select Company Type:
-                <select name="coType" value={this.state.coType} onChange={this.handleInputChange}>
-                  <option value="insurance">Insurance</option>
-                  <option value="nonInsurance">Non-Insurance</option>
-                </select>
-              </label> */}
               <FormBtn
                 disabled={!(this.state.email && this.state.password)}
                 onClick={this.handleLogin}
               >
                 Log In
               </FormBtn>
-              <p style={{textAlign: "center"}}>Not yet a Member? <a href="signup">Sign-up here</a></p>
+              <p style={{textAlign: "center", fontSize: "1em"}}>Not yet a Member? <a href="signup">Sign-up here</a></p>
             </form>
           </Col>
         </Row>
         </div>
+        <br/> 
+        <br/>
+        <br/> 
+        <br/>
+        <br/> 
+        <br/>        
       </Container>
     );
   }

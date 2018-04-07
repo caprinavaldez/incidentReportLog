@@ -1,5 +1,5 @@
 .navbar-brand {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 #topNav {
     background-color: white;
@@ -16,3 +16,4 @@ h4 {
     margin-left: 90%;
     margin-top: -60px;
 }
+

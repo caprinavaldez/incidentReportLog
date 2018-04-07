@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-import {BarChart, PieChart} from 'react-easy-chart';
+import Auth from "../../utils/Auth";
+import {BarChart, PieChart, Legend} from 'react-easy-chart';
 import "./BizHome.css";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
@@ -12,12 +13,10 @@ import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 class BizHome extends Component {
   state = {
-    biz: {
-      name: "Business Name",
-      monthgraph: "Monthly Accidents",
-      categorygraph: "Accidents by Category",
-      accidentlist: "Accident Report List"
-    },
+    bizName: "Business Name",
+    monthgraph: "Monthly Accidents",
+    categorygraph: "Accidents by Category",
+    accidentlist: "Accident Report List",
     incidents: [],
     incidentsByCategory: [
       {key: 'Overexertion', value: 100},
@@ -74,6 +73,7 @@ class BizHome extends Component {
     this.loadIncidents();
     this.loadIncidentsByCategory();
     this.loadIncidentsByMonth();
+    this.loadUserName();
   };
 
   loadIncidents = () => {
@@ -100,18 +100,19 @@ class BizHome extends Component {
       .catch(err => console.log(err));
   };
 
+  loadUserName = () => {
+    if (Auth.getUser()) {
+      this.setState({ bizName: Auth.getUser().bizName });
+    }
+  }
+
   render() {
     return (
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <Link to="/" style={{float: "right"}}>Sign-out</Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
               <h1>
-                {this.state.biz.name}
+                {this.state.bizName}
               </h1>
               <a href="/add" className="btn btn-warning" style={{float: "right"}}>
                 Add New Report
@@ -121,7 +122,14 @@ class BizHome extends Component {
         <Row>
           <div className="graphs">
           <Col size="md-6">
-            <h2>{this.state.biz.monthgraph}</h2>
+          <h2>{this.state.categorygraph}</h2>
+            <PieChart
+              innerHoleSize={175}
+              data={this.state.incidentsByCategory}
+            />
+          </Col>
+          <Col size="md-6">
+            <h2>{this.state.monthgraph}</h2>
             <BarChart
               axisLabels={{x: 'Month', y: 'Amount'}}
               axes
@@ -130,19 +138,19 @@ class BizHome extends Component {
               height={250}
               width={650}
               data={this.state.incidentBarChart}
-            />            
-          </Col>
-          <Col size="md-6">
-            <h2>{this.state.biz.categorygraph}</h2>
-            <PieChart
-              labels
-              data={this.state.incidentsByCategory}
-            />            
+            />
           </Col>
           </div>
         </Row>    
         <Row>
-          <h2>{this.state.biz.accidentlist}</h2>
+          <Col size="md-6">
+            <div id="legend">
+              <Legend data={this.state.incidentsByCategory} dataId={'key'} horizontal />         
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <h2>{this.state.accidentlist}</h2>
         </Row>
       <div>
         <BootstrapTable ref='table' data={ this.state.incidents } multiColumnSort={ 2 }>

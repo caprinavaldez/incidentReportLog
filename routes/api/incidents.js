@@ -4,14 +4,18 @@ const incidentController = require("../../controllers/incidentsController");
 // Matches with "/api/incidents"
 router
   .route("/")
-  .get(incidentController.findAll)
-  .post(incidentController.create);
+  .post(incidentController.create)
+  .get(incidentController.findAll);
 
 router
-  .route("/counts-by-category")
+  .route("/counts-by-category/:user_id")
   .get(incidentController.countByCategory);
+  
+router
+  .route("/counts-by-month/:user_id")
+  .get(incidentController.groupByMonth);
 
-  router
+router
   .route("/counts-by-industry")
   .get(incidentController.countByIndustry);
 
@@ -22,10 +26,6 @@ router
 router
   .route("/avg-costs-by-industry")
   .get(incidentController.averageCostByIndustry);
-
-router
-  .route("/counts-by-month")
-  .get(incidentController.groupByMonth);
 
 // Matches with "/api/incidents/:id"
 router

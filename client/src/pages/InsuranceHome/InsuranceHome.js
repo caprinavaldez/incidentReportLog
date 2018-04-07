@@ -1,31 +1,30 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-import {BarChart, PieChart} from 'react-easy-chart';
+import Auth from "../../utils/Auth";
+import {BarChart, PieChart, Legend} from 'react-easy-chart';
 import './InsuranceHome.css';
 
 class InsuranceHome extends Component {
   state = {
-    insurance: {
-      name: "Insurance Name",
-      year: "2018",
-      industrygraph: "Accidents by Industry",
-      categorygraph: "Accidents by Category",
-      industrycosts: "Average Accident Costs by Industry",
-      categorycosts: "Average Accident Costs by Category"
-    },
+    name: "Insurance Name",
+    year: "2018",
+    industrygraph: "Accidents by Industry",
+    categorygraph: "Accidents by Category",
+    industrycosts: "Average Accident Costs by Industry",
+    categorycosts: "Average Accident Costs by Category",
     incidentsByIndustry: [
-      // {key: 'Health/Social Care', value: 100},
-      // {key: 'Construction', value: 200},
-      // {key: 'Agriculture/Food & Restaurant', value: 10},
-      // {key: 'Manufacturing', value: 5},
-      // {key: 'Retail/Wholesale Trade', value: 42},
-      // {key: 'Education and Training', value: 10},
-      // {key: 'Arts/Entertainment', value: 10},
-      // {key: 'Finance/Banking', value: 5},
-      // {key: 'Administration', value: 10},
-      // {key: 'Government/Military', value: 12}
+      {key: 'Health/Social Care', value: 100},
+      {key: 'Construction', value: 200},
+      {key: 'Agriculture/Food & Restaurant', value: 10},
+      {key: 'Manufacturing', value: 5},
+      {key: 'Retail/Wholesale Trade', value: 42},
+      {key: 'Education and Training', value: 10},
+      {key: 'Arts/Entertainment', value: 10},
+      {key: 'Finance/Banking', value: 5},
+      {key: 'Administration', value: 10},
+      {key: 'Government/Military', value: 12}
     ],
     incidentsByCategory: [
       {key: 'Overexertion', value: 100},
@@ -96,6 +95,7 @@ class InsuranceHome extends Component {
     this.loadIncidentsByCategory();
     this.loadByCategoryCost();
     this.loadByIndustryCost();
+    this.loadUserName();
   }
 
   loadIncidentsByIndustry = () => {
@@ -134,46 +134,59 @@ class InsuranceHome extends Component {
       .catch(err => console.log(err));
   };
 
+  loadUserName = () => {
+    if (Auth.getUser()) {
+      this.setState({ name: Auth.getUser().bizName });
+    }
+  }
+
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Link to="/" style={{float: "right"}}>Sign-out</Link>
-          </Col>
-        </Row>      
+      <Container fluid>    
         <Row>
           <Col size="md-12">
               <h1>
-                {this.state.insurance.name}
+                {this.state.name}
               </h1>
           </Col>
         </Row>
         <Row>
-          <h1>{this.state.insurance.year}</h1>
+          <h1>{this.state.year}</h1>
         </Row>
         <Row>
           <div className="graphs">
           <Col size="md-6">
-            <h2>{this.state.insurance.industrygraph}</h2>
+            <h2>{this.state.industrygraph}</h2>
             <PieChart
-              labels
+              innerHoleSize={175}
               data={this.state.incidentsByIndustry}
             /> 
           </Col>
           <Col size="md-6">
-            <h2>{this.state.insurance.categorygraph}</h2>
+            <h2>{this.state.categorygraph}</h2>
             <PieChart
-              labels
+              innerHoleSize={175}
               data={this.state.incidentsByCategory}
             />            
           </Col>
           </div>
         </Row>
         <Row>
+          <Col size="md-6">
+            <div id="legend">
+              <Legend data={this.state.incidentsByIndustry} dataId={'key'} horizontal />         
+            </div>
+          </Col>
+          <Col size="md-6">
+            <div id="legend">
+              <Legend data={this.state.incidentsByCategory} dataId={'key'} horizontal />         
+            </div>
+          </Col>
+        </Row>
+        <Row>
           <div className="graphs">
           <Col size="md-6">
-            <h2>{this.state.insurance.industrycosts}</h2>
+            <h2>{this.state.industrycosts}</h2>
             <BarChart
           axisLabels={{x: 'Month', y: 'Amount'}}
           axes
@@ -185,7 +198,7 @@ class InsuranceHome extends Component {
         />
           </Col>   
           <Col size="md-6">
-            <h2>{this.state.insurance.categorycosts}</h2>
+            <h2>{this.state.categorycosts}</h2>
             <BarChart
           axisLabels={{x: 'Month', y: 'Amount'}}
           axes

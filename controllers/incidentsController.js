@@ -1,4 +1,6 @@
+const mongoose = require("mongoose");
 const db = require("../models");
+const ObjectId = mongoose.Types.ObjectId;
 
 // Defining methods for the incidentController
 module.exports = {
@@ -17,6 +19,11 @@ module.exports = {
   groupByMonth: function(req, res) {
     db.Incident
       .aggregate([
+        {
+          $match: {
+            user: ObjectId(req.params.user_id)
+          }
+        },
         {
           $group: {
             _id: {
@@ -45,6 +52,11 @@ module.exports = {
   countByCategory: function(req, res) {
     db.Incident
       .aggregate([
+        {
+          $match: {
+            user: ObjectId(req.params.user_id)
+          }
+        },
         {
           $group: {
             _id: "$category",
@@ -149,8 +161,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log(req.body)
     db.Incident
-      .create(req.body)
+      .create( req.body )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -162,7 +175,7 @@ module.exports = {
   },
   remove: function(req, res) {
     db.Incident
-      .findById({ _id: req.params.id })
+      .findById( req.body )
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
