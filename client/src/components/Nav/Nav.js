@@ -5,39 +5,39 @@ import Auth from "../../utils/Auth";
 const Nav = () => (
   <nav id="topNav" className="navbar navbar-default">
     <div className="container-fluid">
- 
+
       <div className="navbar-header">
         <button type="button" className="collapsed navbar-toggle">
           <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" /> 
+          <span className="icon-bar" />
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
         <a href="/" className="navbar-brand">
           <h4>Home</h4>
-        </a> 
-        <div className="logo">
-          <img src="/logo.png" />
-        </div>
-        </div>
+        </a>
+      </div>
+      {Auth.isUserAuthenticated() ? (
+
+    
+<div className="navbar-header navbar-right">
+<a href="/logout" className="navbar-brand">
+  <h4>Logout</h4>
+</a>
+</div>
+     
+      ) : (
         <div className="navbar-header navbar-right">
         <a href="/login" className="navbar-brand">
           <h4>Login</h4>
-        </a>  
-      </div>
+        </a>
+        <a href="/signup" className="navbar-brand">
+          <h4>Sign-up</h4>
+        </a>
     </div>
-  ) : (
-    
-    <div className="navbar-header navbar-right">
-    <a href="/login" className="navbar-brand">
-    <h4>Login</h4>
-    </a>
-    <a href="/signup" className="navbar-brand">
-    <h4>Sign-up</h4>
-    </a>
+     
+      )}
     </div>
-  )}
-  </div>
   </nav>
 );
 

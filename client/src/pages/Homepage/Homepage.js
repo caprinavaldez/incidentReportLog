@@ -11,7 +11,6 @@ class Homepage extends Component {
     benefitsColTwo: "Want to see all your data for the year? For the month? Maybe by accident category? We have interactive graphs that will let you visualize all your data. This can help your company improve in every way possible, whether building maintenances are in order or possibly just a notorious worker!",
     benefitsColThree: "Not only does Accident to Action save you time and space, it also saves you on costs! On top of being environmentally friendly using our online application, for all your data stored you can catch any problems before it arises and set your plans to fix them before more accidents happen."
   };
-  
 
   render() {
     return (
@@ -72,11 +71,6 @@ class Homepage extends Component {
          
         </Row>
         </div>
-        <Row>
-          <Col size="md-2">
-            {/* <Link to="/">← Back to Home</Link> */}
-          </Col>
-        </Row>
       </Container>
     );
   }
