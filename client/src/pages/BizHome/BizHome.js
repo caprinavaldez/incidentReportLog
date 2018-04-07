@@ -122,7 +122,7 @@ class BizHome extends Component {
         <Row>
           <div className="graphs">
           <Col size="md-6">
-          <h2>{this.state.biz.categorygraph}</h2>
+          <h2>{this.state.categorygraph}</h2>
             <PieChart
               innerHoleSize={175}
               data={this.state.incidentsByCategory}
