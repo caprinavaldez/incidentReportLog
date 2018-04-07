@@ -11,33 +11,20 @@ class Homepage extends Component {
     benefitsColTwo: "Want to see all your data for the year? For the month? Maybe by accident category? We have interactive graphs that will let you visualize all your data. This can help your company improve in every way possible, whether building maintenances are in order or possibly just a notorious worker!",
     benefitsColThree: "Not only does Accident to Action save you time and space, it also saves you on costs! On top of being environmentally friendly using our online application, for all your data stored you can catch any problems before it arises and set your plans to fix them before more accidents happen."
   };
-  
-  // When this component mounts, grab the book with the _id of this.props.match.params.id
-  // e.g. localhost:3000/books/599dcb67f0f16317844583fc
-  componentDidMount() {
-    // API.getBook(this.props.match.params.id)
-    //   .then(res => this.setState({ book: res.data }))
-    //   .catch(err => console.log(err));
-  }
 
   render() {
     return (
       <Container fluid>
         <Row>
           <Col size="md-12">
-            <div className="logo">
-              <img src="/logo2Name.png"/>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-10 md-offset-1">
+          <div className="aboutUs">
             <article>
               <h1>About Us</h1>
               <p>
                 {this.state.description}
               </p>
             </article>
+          </div>
           </Col>
         </Row>
         <Row> 
@@ -69,6 +56,7 @@ class Homepage extends Component {
           </Col>
         </Row>
         </div>
+        <div className="benefits">
         <Row>
           <Col size="md-4">
             <p>{this.state.benefitsColOne}</p>
@@ -80,11 +68,7 @@ class Homepage extends Component {
             <p>{this.state.benefitsColThree}</p>
           </Col>
         </Row>
-        <Row>
-          <Col size="md-2">
-            {/* <Link to="/">← Back to Home</Link> */}
-          </Col>
-        </Row>
+        </div>
       </Container>
     );
   }

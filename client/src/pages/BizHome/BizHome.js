@@ -19,12 +19,12 @@ class BizHome extends Component {
     accidentlist: "Accident Report List",
     incidents: [],
     incidentsByCategory: [
-      {key: 'Overexertion', value: 100},
+      {key: 'Overexertion', value: 100, color: 'black'},
       {key: 'Trips/Falls', value: 200},
       {key: 'Other Exertions', value: 10},
       {key: 'Repetitive Motions', value: 5},
       {key: 'Equipment/Object Causing', value: 42},
-      {key: 'Assault/Violent Act', value: 10},
+      {key: 'Assault/Violent Act', value: 10, color: 'black'},
     ],
     incidentBarChart: [
       {
