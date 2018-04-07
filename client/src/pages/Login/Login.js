@@ -63,11 +63,6 @@ class Login extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Col size="md-2">
-            <Link to="/business">← Back to Home</Link>
-          </Col>
-        </Row>
         <div id="loginForm">
         <Row>
           <Col size="md-12">

@@ -48,11 +48,6 @@ class Signup extends Component {
   render() {
     return (
       <Container fluid>
-        <Row>
-          <Col size="md-2">
-            <Link to="/">← Back to Home</Link>
-          </Col>
-        </Row>
         <div id="signupForm">
         <Row>
           <Col size="md-12">
