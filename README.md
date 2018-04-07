@@ -1,10 +1,12 @@
-# Create React Express App
+# Accident2Action (a.k.a. Accident to Action App)
 
-## About This Boilerplate
+## About This App
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Uses React, Bootstrap, Node, Express, Mongoose, Passport, and Heroku.
+React Bootstrap Tables, React graphs, and React Carousel was used to create components of the app.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+The app allows businesses to simply add and view data on accidents that occur on the job.
+Insurance companies can view stats directly related to the companies they insure.
 
 ## Starting the app locally
 
@@ -15,6 +17,7 @@ yarn install
 cd client
 yarn install
 cd ..
+yarn add nuka-carousel
 ``
 
 After both installations complete, run the following command in your terminal:
@@ -23,20 +26,4 @@ After both installations complete, run the following command in your terminal:
 yarn start
 ```
 
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
-
-1. Build the React app for production by running the following command:
-
-```
-yarn build
-```
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
+Now you can see the app work...
