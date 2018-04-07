@@ -56,7 +56,8 @@ class Signup extends Component {
         <div id="signupForm">
         <Row>
           <Col size="md-12">
-          <h1>Create a New Account</h1>
+          <h1 id="new">Create a New Account</h1>
+          <div className="form-group">          
             <form>
               <Input
                 value={this.state.bizName}
@@ -64,30 +65,25 @@ class Signup extends Component {
                 name="bizName"
                 placeholder="Company Name (Required)"
               />
-              <label>
-                <select className="coType" name="coType" value={this.state.coType} onChange={this.handleInputChange}>
+                <select className="form-control" name="coType" value={this.state.coType} onChange={this.handleInputChange}>
                   <option>Select Company Type:</option>
                   <option value="insurance">Insurance</option>
                   <option value="nonInsurance">Non-Insurance</option>
                 </select>
-              </label> 
-              <br></br>    
-              <label>          
-                <select className="bizCat" name="bizCategory" value={this.state.bizCategory} onChange={this.handleInputChange}>
+                <select className="form-control" name="bizCategory" value={this.state.bizCategory} onChange={this.handleInputChange}>
                   <option>Select Business Category:</option>
-                  <option value="insurance">Insurance</option>
-                  <option value="construction">Construction</option>
-                  <option value="health-socialCare">Health/Social Care</option>
-                  <option value="education">Education</option>
-                  <option value="arts-entertainment">Arts/Entertainment</option>
-                  <option value="finance-banking">Finance/Banking</option>
-                  <option value="administration">Administration</option>
-                  <option value="retail-wholesaleTrade">Retail/Wholesale Trade</option>
-                  <option value="agriculture-foodRestaurant">Agriculture/Food and Restaurant</option>
-                  <option value="manufacturing">Manufacturing</option>
-                  <option value="government-military">Government/Military</option>
+                  <option value="Insurance">Insurance</option>
+                  <option value="Construction">Construction</option>
+                  <option value="Health/Social Care">Health/Social Care</option>
+                  <option value="Education">Education</option>
+                  <option value="Arts/Entertainment">Arts/Entertainment</option>
+                  <option value="Finance/Banking">Finance/Banking</option>
+                  <option value="Administration">Administration</option>
+                  <option value="Retail/Wholesale Trade">Retail/Wholesale Trade</option>
+                  <option value="Agriculture/Food and Restaurant">Agriculture/Food and Restaurant</option>
+                  <option value="Manufacturing">Manufacturing</option>
+                  <option value="Government/Military">Government/Military</option>
                 </select>
-              </label>   
               <Input
                 value={this.state.email}
                 onChange={this.handleInputChange}
@@ -109,10 +105,12 @@ class Signup extends Component {
               </FormBtn>
               <p style={{textAlign: "center", fontSize: "1em"}}>Already a Member? <a href="login">Login here</a></p>
             </form>
+            </div>
           </Col>
         </Row>
         </div>
-      </Container>
+    </Container>
+
     );
   }
 }

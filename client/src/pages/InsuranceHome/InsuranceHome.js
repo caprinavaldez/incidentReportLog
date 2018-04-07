@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-import {BarChart, PieChart} from 'react-easy-chart';
+import {BarChart, PieChart, Legend} from 'react-easy-chart';
 import './InsuranceHome.css';
 
 class InsuranceHome extends Component {
@@ -136,12 +136,7 @@ class InsuranceHome extends Component {
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-12">
-            <Link to="/" style={{float: "right"}}>Sign-out</Link>
-          </Col>
-        </Row>      
+      <Container fluid>    
         <Row>
           <Col size="md-12">
               <h1>
@@ -157,18 +152,30 @@ class InsuranceHome extends Component {
           <Col size="md-6">
             <h2>{this.state.insurance.industrygraph}</h2>
             <PieChart
-              labels
+              innerHoleSize={175}
               data={this.state.incidentsByIndustry}
             /> 
           </Col>
           <Col size="md-6">
             <h2>{this.state.insurance.categorygraph}</h2>
             <PieChart
-              labels
+              innerHoleSize={175}
               data={this.state.incidentsByCategory}
             />            
           </Col>
           </div>
+        </Row>
+        <Row>
+          <Col size="md-6">
+            <div id="legend">
+              <Legend data={this.state.incidentsByIndustry} dataId={'key'} horizontal />         
+            </div>
+          </Col>
+          <Col size="md-6">
+            <div id="legend">
+              <Legend data={this.state.incidentsByCategory} dataId={'key'} horizontal />         
+            </div>
+          </Col>
         </Row>
         <Row>
           <div className="graphs">

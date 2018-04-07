@@ -65,6 +65,7 @@ class AddReport extends Component {
           </Col>
         </Row>
         <Row>
+        <div className="form-group">          
             <form>
               <Row>
               <Col size="md-6">
@@ -88,9 +89,8 @@ class AddReport extends Component {
               />
               </Col>
               <Col size="md-6">
-              <label>
-                <select className="dropDown2" name="category" value={this.state.category} onChange={this.handleInputChange}>
-                  <option>Select Accident Category: </option> 
+                <select className="form-control" name="category" value={this.state.category} onChange={this.handleInputChange}>
+                  <option id="label">Select Accident Category: </option> 
                   <option value="Overexertion">Overexertion</option>
                   <option value="Trips/Falls">Trips/Falls</option>
                   <option value="Other Exertions">Other Exertions</option>
@@ -98,7 +98,6 @@ class AddReport extends Component {
                   <option value="Equipment/Object">Equipment/Object Causing</option>
                   <option value="Assault">Assault/Violent Act</option>
                 </select>
-              </label>
               </Col>
               </Row>  
               <Row>
@@ -134,6 +133,7 @@ class AddReport extends Component {
                 Submit
               </FormBtn>
             </form>
+            </div>
           </Row>
         </div>
       </Container>

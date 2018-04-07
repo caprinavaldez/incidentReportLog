@@ -54,3 +54,11 @@ p {
 .graphs {
     text-align: center
 }
+
+#legend {
+    float: center;
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+    padding: 15px 0 40px 0
+}
