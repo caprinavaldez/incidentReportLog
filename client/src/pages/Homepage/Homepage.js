@@ -41,7 +41,7 @@ class Homepage extends Component {
           </div>
           </Col>
           <div className="border">
-            <img src="/cautionTape.png" />
+            <img src="/cautionTape.png"/>
           </div>
         </Row>
         <div id="icons">
